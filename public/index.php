@@ -11,5 +11,6 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 $app = new \Emeset\Emeset($contenidor);
 
 $app->get("/", "App\Controllers\portada:ctrlPortada");
+$app->get("/login", "App\Controllers\login:ctrlIndex");
 
 $app->execute();
