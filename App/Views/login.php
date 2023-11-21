@@ -38,7 +38,6 @@
         </div>
       </div>
     </section>
-    <?php include "footer.php" ?>
     <script src="/js/flowbite.min.js"></script>
     <script src="/js/bundle.js"></script>
     <?php  include "footer.php" ?>
