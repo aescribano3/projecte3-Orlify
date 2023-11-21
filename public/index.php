@@ -17,4 +17,8 @@ $app->get("carnet", "App\Controllers\carnet:ctrlCarnet"); // llamar al controlad
 $app->get("/mis-datos", "App\Controllers\userdata:ctrlsee");
 
 
+$app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
+
+
+
 $app->execute();
