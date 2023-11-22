@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-class UserData{
+class SingUp{
 
 
     public function ctrlIndex($request, $response, $container)
     {
 
-        $response->SetTemplate("misdatos.php");
+        $response->SetTemplate("register.php");
 
         return $response;
     }
