@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-class Carnet{
+class Orla{ //siempre poner ctrlIndex para mantener la pagina
 
 
     public function ctrlIndex($request, $response, $container)
     {
 
-        $response->SetTemplate("carnet.php");
+        $response->SetTemplate("orla.php");
 
         return $response;
     }

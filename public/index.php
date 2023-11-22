@@ -16,9 +16,7 @@ $app->get("/login", "App\Controllers\login:ctrlIndex");
 $app->get("carnet", "App\Controllers\carnet:ctrlCarnet"); // llamar al controlador de carnet
 $app->get("/mis-datos", "App\Controllers\userdata:ctrlsee");
 
-
+$app->get("/carnet", "App\Controllers\carnet:ctrlIndex"); // llamar al controlador de carnet
+$app->get("/orla", "App\Controllers\orla:ctrlIndex"); // llamar al controlador de orla
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
-
-
-
 $app->execute();
