@@ -13,8 +13,10 @@ $app = new \Emeset\Emeset($contenidor);
 
 $app->get("/", "App\Controllers\portada:ctrlPortada");
 $app->get("/login", "App\Controllers\login:ctrlIndex");
-$app->get("carnet", "App\Controllers\carnet:ctrlCarnet"); // llamar al controlador de carnet
-$app->get("/mis-datos", "App\Controllers\userdata:ctrlsee");
+$app->get("/carnet", "App\Controllers\user:ctrlCarnet"); // llamar al controlador de carnet
+$app->get("/mis-datos", "App\Controllers\user:ctrlDades");
+$app->get("/imgiorla", "App\Controllers\imguser:ctrlIndex");
+
 
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");

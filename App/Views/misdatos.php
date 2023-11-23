@@ -14,7 +14,7 @@
     <div class="w-1/2 p-4 flex items-center justify-center relative group">
     <div class="relative overflow-hidden rounded-lg">
         <img class="w-64 h-64 rounded-full transition duration-300 transform hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/1200px-Donald_Trump_official_portrait.jpg" alt="Rounded avatar">
-        <div class="absolute inset-0 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white transition duration-300 rounded-lg">
+        <div class="absolute inset-0 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white transition duration-300 ">
         <a href="https://cendrassos.net/">
             <p class="text-lg font-semibold">Cambiar Imagen</p>
         </a>
