@@ -17,6 +17,8 @@ $app->get("/register", "App\Controllers\singup:ctrlIndex");
 $app->get("/carnet", "App\Controllers\Carnet:ctrlIndex"); // llamar al controlador de carnet
 $app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex"); // llamar al controlador de orla
 $app->get("/info-grup", "App\Controllers\Professors:ctrlIndex");
+$app->get("/imgiorla", "App\Controllers\imguser:ctrlIndex");
+
 
 
 
