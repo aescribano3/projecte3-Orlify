@@ -633,12 +633,15 @@ video {
 .mr-3 {
   margin-right: 0.75rem;
 }
+<<<<<<< HEAD
 .ms-3 {
   margin-inline-start: 0.75rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
 }
+=======
+>>>>>>> feature-alumne-img-perfil
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -696,6 +699,7 @@ video {
 .h-9 {
   height: 2.25rem;
 }
+<<<<<<< HEAD
 .h-auto {
   height: auto;
 }
@@ -704,6 +708,16 @@ video {
 }
 .h-screen {
   height: 100vh;
+=======
+.h-8 {
+  height: 2rem;
+}
+.h-80 {
+  height: 20rem;
+}
+.h-10 {
+  height: 2.5rem;
+>>>>>>> feature-alumne-img-perfil
 }
 .w-1\/2 {
   width: 50%;
@@ -1231,13 +1245,19 @@ video {
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
+<<<<<<< HEAD
 
 body{
     min-height: 100vh;
+=======
+body{
+    max-height: 100vh;
+>>>>>>> feature-alumne-img-perfil
     display: flex;
     flex-direction: column;
 }
 
+<<<<<<< HEAD
 .odd\:bg-white:nth-child(odd) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1246,6 +1266,28 @@ body{
 .even\:bg-gray-50:nth-child(even) {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+=======
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #72c8d3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 74vh;
+>>>>>>> feature-alumne-img-perfil
 }
 
 .hover\:scale-110:hover {
@@ -1314,11 +1356,14 @@ body{
   color: rgb(190 18 60 / var(--tw-text-opacity));
 }
 
+<<<<<<< HEAD
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -1327,11 +1372,14 @@ body{
   opacity: 1;
 }
 
+<<<<<<< HEAD
 .focus\:border-primary-600:focus {
   --tw-border-opacity: 1;
   border-color: rgb(225 29 72 / var(--tw-border-opacity));
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 .focus\:border-red-600:focus {
   --tw-border-opacity: 1;
   border-color: rgb(220 38 38 / var(--tw-border-opacity));
@@ -1390,11 +1438,14 @@ body{
   --tw-ring-color: rgb(253 164 175 / var(--tw-ring-opacity));
 }
 
+<<<<<<< HEAD
 .focus\:ring-primary-600:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(225 29 72 / var(--tw-ring-opacity));
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 .peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:translate-y-0 {
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1446,10 +1497,13 @@ body{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+<<<<<<< HEAD
 :is([dir="rtl"] .rtl\:text-right) {
   text-align: right;
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 :is([dir="rtl"] .peer:focus ~ .rtl\:peer-focus\:left-auto) {
   left: auto;
 }
@@ -1541,6 +1595,7 @@ body{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+<<<<<<< HEAD
 :is(.dark .odd\:dark\:bg-gray-900):nth-child(odd) {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1551,6 +1606,8 @@ body{
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 :is(.dark .dark\:hover\:\!bg-primary-700:hover) {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(190 18 60 / var(--tw-bg-opacity)) !important;
@@ -1566,11 +1623,14 @@ body{
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
+<<<<<<< HEAD
 :is(.dark .dark\:hover\:bg-gray-700:hover) {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> feature-alumne-img-perfil
 :is(.dark .dark\:hover\:bg-gray-800:hover) {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
