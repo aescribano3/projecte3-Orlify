@@ -28,3 +28,12 @@ body{
     overflow-x: hidden;
     max-height: 74vh;
 }
+
+
+.h-aside {
+    height: 33.49rem;
+  }
+
+body.pag-menu{
+    max-height: 100vh;
+}
