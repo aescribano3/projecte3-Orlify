@@ -16,15 +16,9 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #72c8d3;
+    background: #ff2225;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-#content {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 74vh;
 }

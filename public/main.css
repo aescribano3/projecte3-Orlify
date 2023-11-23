@@ -1246,17 +1246,11 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #72c8d3;
+    background: #ff2225;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-}
-
-#content {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 74vh;
 }
 
 .odd\:bg-white:nth-child(odd) {
@@ -1348,6 +1342,11 @@ body{
   opacity: 1;
 }
 
+.focus\:border-blue-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
 .focus\:border-primary-600:focus {
   --tw-border-opacity: 1;
   border-color: rgb(225 29 72 / var(--tw-border-opacity));
@@ -1389,6 +1388,11 @@ body{
 .focus\:ring-blue-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-blue-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
 .focus\:ring-gray-200:focus {
