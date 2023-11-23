@@ -8,13 +8,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Grups Professor</title>
 </head>
-<style>
-    body {
-        max-height: 100vh;
-    }
-</style>
 
-<body class="bg-gray-100">
+
+<body class="bg-gray-100 pag-body">
     <?php include "header.php" ?>
     <div class="flex h-screen">
         <aside id="sidebar-multi-level-sidebar" class="shadow-md w-48 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
@@ -117,9 +113,37 @@
                         <td class="px-6 py-4">
                             $1999
                     </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Microsoft Surface Pro
+                        </th>
+                        <td class="px-6 py-4">
+                            White
+                        </td>
+                        <td class="px-6 py-4">
+                            Laptop PC
+                        </td>
+                        <td class="px-6 py-4">
+                            $1999
+                    </tr>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Microsoft Surface Pro
+                        </th>
+                        <td class="px-6 py-4">
+                            White
+                        </td>
+                        <td class="px-6 py-4">
+                            Laptop PC
+                        </td>
+                        <td class="px-6 py-4">
+                            $1999
+                    </tr>
+                    
                 </tbody>
             </table>
         </div>
+        
     </div>
 
 
