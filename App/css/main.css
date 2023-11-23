@@ -1,13 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
-
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-=======
 body{
     max-height: 100vh;
     display: flex;
@@ -34,5 +27,4 @@ body{
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 74vh;
->>>>>>> feature-alumne-img-perfil
 }
