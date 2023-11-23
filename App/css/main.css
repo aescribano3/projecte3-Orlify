@@ -7,3 +7,19 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff2225;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
