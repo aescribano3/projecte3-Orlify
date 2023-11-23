@@ -9,7 +9,7 @@
     <title>Crear Orla</title>
 </head>
 
-<body class="pag-menu"> <!-- Agregado: Clases para centrar en la página -->
+<body class="pag-body">
     <?php include "header.php" ?>
     <div class="flex h-screen">
         <aside id="sidebar-multi-level-sidebar" class="shadow-md w-48 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
