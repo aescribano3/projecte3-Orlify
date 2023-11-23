@@ -12,13 +12,11 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 $app = new \Emeset\Emeset($contenidor);
 
 $app->get("/", "App\Controllers\login:ctrlIndex");
-$app->get("carnet", "App\Controllers\carnet:ctrlCarnet"); // llamar al controlador de carnet
 $app->get("/mis-datos", "App\Controllers\userdata:ctrlIndex");
 $app->get("/register", "App\Controllers\singup:ctrlIndex");
-
-
+$app->get("/carnet", "App\Controllers\Carnet:ctrlIndex"); // llamar al controlador de carnet
+$app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex"); // llamar al controlador de orla
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
-
-
+$app->get("/info-grup", "App\Controllers\Professors:ctrlIndex");
 
 $app->execute();
