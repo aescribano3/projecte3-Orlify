@@ -9,7 +9,7 @@
     <title>Carnet</title>
 </head>
 
-<body> <!-- Agregado: Clases para centrar en la página -->
+<body>
     <?php include "header.php" ?>
 
     <!--mobile first-->

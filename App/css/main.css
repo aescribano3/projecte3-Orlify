@@ -36,3 +36,6 @@ body{
 .pag-body{
     max-height: 100vh;
 }
+.alturadiv{
+    min-height: 85vh;
+}
