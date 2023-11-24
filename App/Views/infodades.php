@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/main.css">
     <title>Informació de les dades</title>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col min-h-screen">
     <?php include "header.php" ?>
 
     <!-- Create User Modal -->
@@ -300,8 +300,8 @@
     </div>
 
     <!-- Menu lateral -->
-    <div class="flex h-screen">
-        <aside id="sidebar-multi-level-sidebar" class="shadow-md w-48 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="flex-1 flex">
+        <aside id="sidebar-multi-level-sidebar" class="w-2/12 shadow-md w-48 bg-gray-50 transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium">
                 <li>
@@ -452,11 +452,7 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-<<<<<<< HEAD
-                        <th class="px-6 py-4">
-=======
                         <th scope="col" class="px-6 py-4">
->>>>>>> Html-ControlPanel-Users
                             <button data-modal-target="create-orla" data-modal-toggle="create-orla" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                 Afegir orla
                             </button>
