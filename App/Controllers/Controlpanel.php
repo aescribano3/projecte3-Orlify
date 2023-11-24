@@ -1,11 +1,11 @@
 <?php
 namespace App\Controllers;
 
-class Professors{
+class Controlpanel{
 
     public function ctrlIndex ($request, $response, $container){
 
-        $response->SetTemplate("infogrupP.php");
+        $response->SetTemplate("infodades.php");
 
         return $response;
     }
