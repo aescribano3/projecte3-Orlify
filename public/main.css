@@ -732,9 +732,6 @@ video {
 .h-full {
   height: 100%;
 }
-.h-screen {
-  height: 100vh;
-}
 .max-h-full {
   max-height: 100%;
 }
@@ -923,9 +920,6 @@ video {
 }
 .overflow-hidden {
   overflow: hidden;
-}
-.overflow-x-auto {
-  overflow-x: auto;
 }
 .overflow-y-auto {
   overflow-y: auto;
