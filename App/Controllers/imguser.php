@@ -12,4 +12,12 @@ class imguser{
 
         return $response;
     }
+
+    public function ctrlorla($request, $response, $container)
+    {
+
+        $response->SetTemplate("verimagenorla.php");
+
+        return $response;
+    }
 }
