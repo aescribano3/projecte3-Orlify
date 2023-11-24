@@ -16,7 +16,7 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
                     Inicieu la sessió al vostre compte
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form class="space-y-4 md:space-y-6" action="#" method="POST">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" placeholder="nom@domini.com" required="">
