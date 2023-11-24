@@ -5,15 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="/css/style.css">
     <title>Grups Professor</title>
 </head>
-<style>
-    body {
-        max-height: 100vh;
-    }
-</style>
-
 <body class="bg-gray-100">
     <?php include "header.php" ?>
     <div class="flex h-screen">

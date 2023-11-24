@@ -3,9 +3,9 @@ namespace App\Controllers;
 
 class Professors{
 
-    public function ctrlIndex ($request, $response, $container){
+    public function ctrlGrupOrla ($request, $response, $container){
 
-        $response->SetTemplate("infogrupP.php");
+        $response->SetTemplate("infogruporla.php");
 
         return $response;
     }

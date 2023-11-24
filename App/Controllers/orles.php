@@ -4,11 +4,10 @@ namespace App\Controllers;
 
 class Orles{
 
-
-    public function ctrlCreateIndex($request, $response, $container)
+    public function ctrlIndex($request, $response, $container)
     {
 
-        $response->SetTemplate("createorla.php");
+        $response->SetTemplate("configorla.php");
 
         return $response;
     }

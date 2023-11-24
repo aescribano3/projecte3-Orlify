@@ -38,11 +38,11 @@
                         <form class="space-y-4 md:space-y-6" action="#">
                             <div class="grid md:grid-cols-3 md:gap-4">
                             <div>
-                                <label for="orlaname" class="block mb-2 text-sm font-medium text-white">Nom orla</label>
+                                <label for="orlaname" class="block mb-2 text-sm font-medium text-white">Nom</label>
                                 <input type="text" name="orlaname" id="orlaname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Nova orla" required>
                             </div>
                             <div>
-                                <label for="orlagrup" class="block mb-2 text-sm font-medium text-white">Grup de l'orla</label>
+                                <label for="orlagrup" class="block mb-2 text-sm font-medium text-white">Grup</label>
                                 <select id="orlagrup" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option>Grup 1</option>
                                     <option>Grup 2</option>
@@ -51,7 +51,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="orlaplantilla" class="block mb-2 text-sm font-medium text-white">Plantilla orla</label>
+                                <label for="orlaplantilla" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
                                 <select id="orlaplantilla" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option>Orla 1</option>
                                     <option>Orla 2</option>
