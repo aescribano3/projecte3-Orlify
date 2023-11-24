@@ -52,7 +52,7 @@
                     </div>
                       <button type="submit" class="w-full text-red-700 bg-white focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Crear un compte</button>
                       <p class="text-sm font-light text-white">
-                      Ja tens un compte? <a href="/" class="font-medium text-white hover:underline">Inicieu sessió aquí</a>
+                      Ja tens un compte? <a href="/login" class="font-medium text-white hover:underline">Inicieu sessió aquí</a>
                       </p>
                   </form>
               </div>
