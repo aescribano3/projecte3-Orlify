@@ -32,7 +32,7 @@
 </aside>
 
 
-<div class="h-aside w-10/12 mx-auto grid ml-5 mr-5 auto-rows-auto grid-cols-6 overflow-auto">
+<div class="h-[80vh] w-10/12 mx-auto grid ml-5 mr-5 auto-rows-auto ms:grid-cols-2 grid-cols-6 overflow-auto">
         <div class="d-flex items-center justify-between h-40 w-40 mt-10">
             <img class="h-40 w-40" src="">
             <p class="text-center" >Nom Alumne</p>
