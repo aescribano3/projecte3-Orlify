@@ -18,6 +18,8 @@ $app->get("/carnet", "App\Controllers\Carnet:ctrlIndex"); // llamar al controlad
 $app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex"); // llamar al controlador de orla
 $app->get("/info-dades", "App\Controllers\Controlpanel:ctrlIndex");
 $app->get("/imgiorla", "App\Controllers\imguser:ctrlIndex");
+$app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
+
 
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
