@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 19:01:03
+-- Tiempo de generación: 27-11-2023 a las 15:39:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -67,7 +67,19 @@ CREATE TABLE `imgs` (
 CREATE TABLE `orla` (
   `idOrla` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `idGrup` int(11) NOT NULL
+  `idGrup` int(11) NOT NULL,
+  `idPlantilla` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `plantilla`
+--
+
+CREATE TABLE `plantilla` (
+  `idPlantilla` int(11) NOT NULL,
+  `url` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,8 +96,15 @@ CREATE TABLE `users` (
   `password` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
   `avatar` varchar(150) NOT NULL,
-  `rol` varchar(150) DEFAULT NULL
+  `rol` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`idUser`, `username`, `name`, `lastname`, `password`, `email`, `avatar`, `rol`) VALUES
+(1, 'prova', 'prova', 'prova', '123', 'prova@gmail.com', 'prova', 'prova');
 
 --
 -- Índices para tablas volcadas
@@ -118,7 +137,14 @@ ALTER TABLE `imgs`
 --
 ALTER TABLE `orla`
   ADD PRIMARY KEY (`idOrla`),
-  ADD KEY `grup-orla` (`idGrup`);
+  ADD KEY `grup-orla` (`idGrup`),
+  ADD KEY `plantilla-orla` (`idPlantilla`);
+
+--
+-- Indices de la tabla `plantilla`
+--
+ALTER TABLE `plantilla`
+  ADD PRIMARY KEY (`idPlantilla`);
 
 --
 -- Indices de la tabla `users`
@@ -149,10 +175,16 @@ ALTER TABLE `orla`
   MODIFY `idOrla` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `plantilla`
+--
+ALTER TABLE `plantilla`
+  MODIFY `idPlantilla` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -182,7 +214,8 @@ ALTER TABLE `imgs`
 -- Filtros para la tabla `orla`
 --
 ALTER TABLE `orla`
-  ADD CONSTRAINT `grup-orla` FOREIGN KEY (`idGrup`) REFERENCES `grup` (`idGrup`);
+  ADD CONSTRAINT `grup-orla` FOREIGN KEY (`idGrup`) REFERENCES `grup` (`idGrup`),
+  ADD CONSTRAINT `plantilla-orla` FOREIGN KEY (`idPlantilla`) REFERENCES `plantilla` (`idPlantilla`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
