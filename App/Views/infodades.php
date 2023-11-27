@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -1123,3 +1124,5 @@
 </body>
 
 </html>
+=======
+>>>>>>> 416acc8 (Fix-pull)
