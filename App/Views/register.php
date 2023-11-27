@@ -46,7 +46,7 @@
                       </div>
                       <div>
                         <label class="block mb-2 text-sm font-medium text-white" for="file_input">Pujar Avatar</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file">
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" id="file_input" type="file" name="images[]" accept=".jpg, .png">
                         <p class="mt-1 text-sm text-white" id="file_input_help">SVG, PNG, JPG</p>
                       </div>
                     </div>
