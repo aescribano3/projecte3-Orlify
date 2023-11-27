@@ -34,6 +34,15 @@
                             <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom@domini.com" required>
                         </div>
                         <div>
+                            <label for="usergrup" class="block mb-2 text-sm font-medium text-white">Grup</label>
+                            <select id="usergrup" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                <option>4 ESO</option>
+                                <option>2 SMX</option>
+                                <option>2 DAW</option>
+                                <option>2 AFI</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-white">Generar usuari de prova</label>
                             <button class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Generar usuari</button>
                         </div>
