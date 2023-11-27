@@ -16,7 +16,7 @@
                   <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
                       Crear una nova compte
                   </h1>
-                  <form class="space-y-4 md:space-y-6" action="#" method="POST" enctype="multipart/form-data">
+                  <form class="space-y-4 md:space-y-6" action="/doregister" method="POST" enctype="multipart/form-data">
                     <div class="grid md:grid-cols-3 md:gap-4">
                       <div>
                           <label for="username" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
