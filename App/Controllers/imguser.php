@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class imguser{
+class Imguser{
 
 
     public function ctrlIndex($request, $response, $container)

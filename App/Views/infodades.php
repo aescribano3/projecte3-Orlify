@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/main.css">
-    <title>Informació de les dades</title>
+    <title>Panell de Control</title>
 </head>
 <body class="flex flex-col min-h-screen">
     <?php include "header.php" ?>
@@ -15,13 +15,15 @@
     <?php include "modifi-grup.php" ?>
     <?php include "create-orla.php" ?>
     <?php include "modifi-orla.php" ?>    
+    <?php include "toast-success.php" ?>
+    <?php include "toast-error.php" ?>
     <body class="flex flex-col min-h-screen">
 
 <div class="flex-1 flex">
 <aside class="w-2/12 shadow-md w-48 bg-gray-50" aria-label="Sidebar">
             <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium">
-                <li>
+                    <li>
                         <a href="#" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <span class="ms-3">Usuaris</span>
                         </a>
@@ -44,7 +46,7 @@
 
 
         <!-- User Table -->
-        <div id="UserTable" class="w-full shadow-md sm:rounded-lg">
+        <div id="UserTable" class="w-full shadow-md sm:rounded-lg hidden">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -112,7 +114,7 @@
         </div>
 
         <!-- Grups Table -->
-        <div id="GrupTable" class="w-full shadow-md sm:rounded-lg hidden">
+        <div id="GrupTable" class="w-full shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>

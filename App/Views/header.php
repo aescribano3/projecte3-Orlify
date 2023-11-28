@@ -1,7 +1,7 @@
 <header>
     <nav class="bg-red-600 border-gray-200 px-4 lg:px-6 py-2.5">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="https://cendrassos.net" class="flex items-center">
+            <a href="/" class="flex items-center">
                 <div class="bg-white rounded-lg w-44 h-12 flex justify-center items-center">
                     <img src="/imgs/logo.png" class="mr-3 h-6 sm:h-9" alt="Cendrassos Logo" />
                 </div>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/main.css">
 
-    <title>Portada</title>
+    <title>OrlesDig</title>
 </head>
 <!--https://www.youtube.com/watch?v=nxoHR9lltK0&ab_channel=WebDevSimplified-->
 <body class="bg-gray-100">

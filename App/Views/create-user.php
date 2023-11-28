@@ -13,29 +13,29 @@
                             </div>
                             <div>
                                 <label for="name" class="block mb-2 text-sm font-medium text-white">Nom</label>
-                                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Pere" required>
+                                <input type="text" name="name" id="name-C" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Pere" required>
                             </div>
                             <div>
                                 <label for="lastname" class="block mb-2 text-sm font-medium text-white">Cognoms</label>
-                                <input type="text" name="lastname" id="lastname" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Pi" required>
+                                <input type="text" name="lastname" id="lastname-C" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Pi" required>
                             </div>
                         </div>
                         <div class="grid md:grid-cols-2 md:gap-6">
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-white">Contrasenya</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                            <input type="password" name="password" id="password-C" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
                         </div>
                         <div>
                             <label for="confirm-password" class="block mb-2 text-sm font-medium text-white">Confirmar contrasenya</label>
-                            <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                            <input type="password" name="confirm-password" id="confirm-password-C" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-white">Correu electronic</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom@domini.com" required>
+                            <input type="email" name="email" id="email-C" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="nom@domini.com" required>
                         </div>
                         <div>
                             <label for="usergrup" class="block mb-2 text-sm font-medium text-white">Grup</label>
-                            <select id="usergrup" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                            <select id="usergrup-C" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                 <option>4 ESO</option>
                                 <option>2 SMX</option>
                                 <option>2 DAW</option>
