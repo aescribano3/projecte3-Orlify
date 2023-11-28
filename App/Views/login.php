@@ -16,14 +16,14 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
                     Inicieu la sessió al vostre compte
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#" method="POST">
+                <form class="space-y-4 md:space-y-6" action="/dologin" method="POST">
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" placeholder="nom@domini.com" required="">
+                        <label for="user" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
+                        <input type="text" name="user" id="user" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" placeholder="Usuario" required>
                     </div>
                     <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-white">Contrasenya</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" required="">
+                        <label for="pass" class="block mb-2 text-sm font-medium text-white">Contrasenya</label>
+                        <input type="password" name="pass" id="pass" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" required="">
                     </div>
                     <div class="flex items-center justify-between">
                         <a href="#" class="text-sm font-medium text-white hover:underline">Has oblidat la contrasenya?</a>

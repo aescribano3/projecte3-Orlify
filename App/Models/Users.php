@@ -36,4 +36,15 @@ class Users
         // Asegúrate de manejar $result según tus necesidades
         return $result;
     }
+    
+    public function login($user, $pass){
+        $stm = $this->sql->prepare('SELECT username, password FROM users WHERE username = :user');
+        $stm->execute(['user' => $user]); 
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+        if(is_array($result) && $result["password"] == $pass){
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
