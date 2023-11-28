@@ -17,17 +17,19 @@ class Login{
 
         $username = $request->get(INPUT_POST, "user");
         $password = $request->get(INPUT_POST, "pass");
-    
+     
         $userModel = $container->get("users");
-        $user = $userModel->login($username, $password);
-        
-       
+        $user = $userModel->validateUser($username, $password);
+
+     
         if($user) {
             $response->setSession("user", $user);
             $response->setSession("logged", true);
             $response->redirect("location: /");
         } else {
-            $response->redirect("location: /login");
+            $response->setSession("logged", false);
+            $response->setSession("error", "Usuari o contrasenya incorrectes");
+            $response->redirect("Location: /login");
         }       
     
         return $response;
