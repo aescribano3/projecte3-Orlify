@@ -9,7 +9,7 @@
                         <div class="grid md:grid-cols-3 md:gap-4">
                             <div>
                                 <label for="grupname" class="block mb-2 text-sm font-medium text-white">Nom</label>
-                                <select id="grupname" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                <select id="grupname-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option>2 DAW</option>
                                     <option>4 ESO</option>
                                     <option>2 SMX</option>
@@ -18,7 +18,7 @@
                             </div>
                             <div>
                                 <label for="grupcurs" class="block mb-2 text-sm font-medium text-white">Grup</label>
-                                <select id="grupcurs" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                <select id="grupcurs-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option>2022/2023</option>    
                                     <option>2023/2024</option>
                                     <option>2021/2022</option>
@@ -27,7 +27,7 @@
                             </div>
                             <div>
                                 <label for="grupteacher" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
-                                <select id="grupteacher" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                <select id="grupteacher-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option>Xavi Vallejo</option>
                                     <option>Professor 2</option>
                                     <option>Professor 3</option>
