@@ -20,8 +20,8 @@
                   <form class="space-y-4 md:space-y-6" action="/doregister" method="POST" enctype="multipart/form-data">
                     <div class="grid md:grid-cols-3 md:gap-4">
                       <div>
-                          <label for="username" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
-                          <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Usuari" required>
+                          <label  for="username" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
+                          <input id="usernameid" type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Usuari" required>
                       </div>
                       <div>
                           <label for="name" class="block mb-2 text-sm font-medium text-white">Nom</label>

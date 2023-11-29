@@ -1,8 +1,32 @@
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
+$("#usernameid").on("input", function() {
+    var usernameid = $(this).val();
+    console.log(usernameid);
 
-$(document).ready(function() {
+
+    $.ajax({
+        url: "/checkusername",
+        type: "POST",
+        data: {usernameid},
+        success: function (result) {
+            
+            $("#toast-success").show();
+        },
+        error: function (error) {
+            $("#toast-error").show();
+        },
+        complete: function () {
+            // Acciones después de que la solicitud se complete (ocultar spinner, etc.)
+            $("#loading-modal").hide();
+        }
+    })
+   
+});
+
+
+
     var password;    
     var errorContainer = $("#errorContainer");
     errorContainer.hide();
@@ -86,5 +110,3 @@ $(document).ready(function() {
             errorContainer.show();
         }
     });
-    
-});
