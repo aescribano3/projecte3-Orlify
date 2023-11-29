@@ -19,8 +19,6 @@
     <?php include "toast-success.php" ?>
     <?php include "toast-error.php" ?>
     <?php include "loading.php" ?>
-
-
     <body class="flex flex-col min-h-screen">
         <div class="flex-1 flex">
             <aside class="w-2/12 shadow-md w-48 bg-gray-50" aria-label="Sidebar">
