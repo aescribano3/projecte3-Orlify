@@ -23,7 +23,7 @@ $app->get("/dadesorla", "App\Controllers\Imguser:ctrlOrla");
 $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Grup:createGrup");
 
-$app->post("/check-username", "App\Controllers\Grup:createGrup");
+$app->post("/check-username", "App\Controllers\User:checkuser");
 
 
 

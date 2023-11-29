@@ -3,22 +3,21 @@ namespace App\Controllers;
 
 class User{
 
-    public function checkuser ($request, $response, $container){
+    public function checkuser($request, $response, $container){
 
-        $grupname = $request->get(INPUT_POST, "grupname");
-        $grupcurs = $request->get(INPUT_POST, "grupcurs");
-        $grupteacher = $request->get(INPUT_POST, "grupteacher");
+        $username = $request->get(INPUT_POST, "usernameid");
 
-        $GrupModel = $container->get("grup");
+        $UserModel = $container->get("users");
 
-        $GrupModel = $GrupModel->createGrup($grupname, $grupcurs, $grupteacher);
+        $UserModel = $UserModel->userExists($username);
 
-        if($GrupModel){
-            $response->setSession("ajax-message","Grup creat correctament");
-        } else {
-            $response->setSession("ajax-message","Error al crear el grup");
-        }
+        echo($UserModel);
+        die();
+        $response->set($UserModel);        
+        $response->setJson();
 
-        return $response;
+        $response->set("result","ok" ); 
+        $response->setJson();  
+
     }
 }

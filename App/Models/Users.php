@@ -59,4 +59,12 @@ class Users
 
         return false;
     }
+
+    public function userExists($user)
+{
+    $query = $this->sql->prepare('SELECT COUNT(*) FROM users WHERE username = :user');
+    $query->execute([':user' => $user]);
+
+    return $query->fetchColumn() > 0;
+}
 }

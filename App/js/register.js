@@ -1,18 +1,48 @@
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
+var booluser = false;
+
+
+
+
+var password;    
+var errorContainer = $("#errorContainerPass");
+var errorContainerUser = $("#errorContainerUser");
+
+
+errorContainer.hide();
+errorContainerUser.hide();
+
+
+var boollength = false;
+    var boollletra = false;
+    var boolnumero = false;
+    var boolguio = false;
+
+    $("#registerbttn").prop("disabled", true);
+
 $("#usernameid").on("input", function() {
     var usernameid = $(this).val();
     console.log(usernameid);
 
 
     $.ajax({
-        url: "/checkusername",
+        url: "/check-username",
         type: "POST",
         data: {usernameid},
         success: function (result) {
-            
-            $("#toast-success").show();
+
+            if(result){
+                errorContainerUser.show();
+
+                booluser = false
+            }else{
+                booluser = true
+                errorContainerUser.hide();
+
+            }
+
         },
         error: function (error) {
             $("#toast-error").show();
@@ -27,16 +57,6 @@ $("#usernameid").on("input", function() {
 
 
 
-    var password;    
-    var errorContainer = $("#errorContainer");
-    errorContainer.hide();
-
-    var boollength = false;
-        var boollletra = false;
-        var boolnumero = false;
-        var boolguio = false;
-
-        $("#registerbttn").prop("disabled", true);
 
     $("#password").on("input", function() {
         password = $(this).val();
@@ -102,7 +122,7 @@ $("#usernameid").on("input", function() {
 
         if (password==confirmPassword) {
             errorContainer.hide();
-            if(boollength && boolnumero && boollletra && boolguio){
+            if(boollength && boolnumero && boollletra && boolguio && booluser){
                 $("#registerbttn").prop("disabled", false);
             }
 

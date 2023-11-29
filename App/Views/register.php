@@ -22,7 +22,10 @@
                       <div>
                           <label  for="username" class="block mb-2 text-sm font-medium text-white">Nom Usuari</label>
                           <input id="usernameid" type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Usuari" required>
-                      </div>
+                          <div class="p-4 mb-4 text-sm text-red-600 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert" id="errorContainerUser">
+                            <span class="font-medium">alerta!</span> Este nombre de usuario ya existe!
+                          </div>
+                        </div>
                       <div>
                           <label for="name" class="block mb-2 text-sm font-medium text-white">Nom</label>
                           <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Pere" required>
@@ -41,7 +44,7 @@
                           <label for="confirm-password" class="block mb-2 text-sm font-medium text-white">Confirmar contrasenya</label>
                           <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
                           
-                          <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert" id="errorContainer">
+                          <div class="p-4 mb-4 text-sm text-red-600 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert" id="errorContainerPass">
                             <span class="font-medium">alerta!</span> Les contrasenyes no coincideixen.
                           </div>
                         </div>
