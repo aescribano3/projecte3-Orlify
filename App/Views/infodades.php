@@ -25,17 +25,17 @@
                 <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                     <ul class="space-y-2 font-medium">
                         <li>
-                            <a href="#" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <a href="#" id="UsersLink" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <span class="ms-3">Usuaris</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <a href="#" id="GrupsLink" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <span class="ms-3">Grups</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <a href="#" id="OrlesLink" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                 <span class="ms-3">Orles</span>
                             </a>
                         </li>
@@ -48,7 +48,7 @@
 
                 <!-- User Table -->
                 <div id="UserTable" class="w-full shadow-md sm:rounded-lg hidden">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table id="TableUser" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-4">
@@ -116,7 +116,7 @@
 
                 <!-- Grups Table -->
                 <div id="GrupTable" class="w-full shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table id="TableGrup" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-4">
@@ -142,30 +142,32 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($grups as $i => $grup) { ?>
                             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
+                                <th scope="row" class="idGrup px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <?=$grup["idGrup"]?>
                                 </th>
                                 <td class="px-6 py-4">
-                                    2DAW
+                                    <?=$grup["name"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    2022/2023
+                                    <?=$grup["curs"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    Xavi Vallejo
+                                    <?=$grup["idTeacher"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button id="<?=$grup["idGrup"]?>" data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button id="<?=$grup["idGrup"]?>" class="drop-button block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
                             </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -176,12 +178,12 @@
 
                 <!-- Orles Table -->
                 <div id="OrlaTable" class="w-full shadow-md sm:rounded-lg hidden">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table id="TableOrla" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-4">
                                     <button data-modal-target="create-orla" data-modal-toggle="create-orla" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Afegir orla
+                                        Afegir Orla
                                     </button>
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -199,596 +201,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
-                                </td>
-                                <td class="px-6 py-4">
-                                    2DAW - 2022/2023
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
                             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     #1

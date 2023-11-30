@@ -4,3 +4,5 @@ window.$ = window.jQuery = jQuery;
 import "./register.js"
 
 import "./ajax-grup.js";
+
+import "./datatables.js";
