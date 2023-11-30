@@ -46,4 +46,31 @@ class Grup
         
     }
 
+    public function modifiGrup($id, $grupname, $grupcurs, $grupteacher){
+        
+        $stm = $this->sql->prepare("UPDATE grup SET name=:grupname, curs=:grupcurs, idTeacher=:grupteacher WHERE idGrup=:id;");
+        
+        $stm -> execute([
+            ':id' => $id,
+            ':grupname' => $grupname, 
+            ':grupcurs' => $grupcurs, 
+            ':grupteacher' => $grupteacher
+        ]);
+        
+        return $stm->rowCount();
+        
+    }
+
+    public function dropGrup($id){
+        
+        $stm = $this->sql->prepare("DELETE FROM grup WHERE idGrup=:id;");
+        
+        $stm -> execute([
+            ':id' => $id
+        ]);
+        
+        return $stm->rowCount();
+        
+    }
+
 }

@@ -22,6 +22,8 @@ $app->get("/imgiorla", "App\Controllers\Imguser:ctrlIndex");
 $app->get("/dadesorla", "App\Controllers\Imguser:ctrlOrla");
 $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Grup:createGrup");
+$app->post("/modifi-grup", "App\Controllers\Grup:modifiGrup");
+$app->post("/drop-grup", "App\Controllers\Grup:dropGrup");
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
 

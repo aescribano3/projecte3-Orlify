@@ -8,7 +8,7 @@
                     <form class="space-y-4 md:space-y-6" action="/create-grup" method="POST">
                         <div class="grid md:grid-cols-3 md:gap-4">
                             <div>
-                                <label for="grupname" class="block mb-2 text-sm font-medium text-white">Nom</label>
+                                <label for="grupname-C" class="block mb-2 text-sm font-medium text-white">Nom</label>
                                 <select name="grupname" id="grupname-C" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option value="4 ESO">4 ESO</option>
                                     <option value="2 SMX">2 SMX</option>
@@ -17,7 +17,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="grupcurs" class="block mb-2 text-sm font-medium text-white">Grup</label>
+                                <label for="grupcurs-C" class="block mb-2 text-sm font-medium text-white">Grup</label>
                                 <select name="grupcurs" id="grupcurs-C" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option value="2023/2024">2023/2024</option>
                                     <option value="2022/2023">2022/2023</option>
@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="grupteacher" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
+                                <label for="grupteacher-C" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
                                 <select name="grupteacher" id="grupteacher-C" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option value="1">Professor 1</option>
                                     <option value="2">Professor 2</option>
