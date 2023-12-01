@@ -42,7 +42,7 @@ class Grup
             ':grupteacher' => $grupteacher
         ]);
         
-        return $this->sql->lastInsertId();
+        return $stm;
         
     }
 
@@ -57,7 +57,7 @@ class Grup
             ':grupteacher' => $grupteacher
         ]);
         
-        return $stm->rowCount();
+        return $stm;
         
     }
 
@@ -69,7 +69,7 @@ class Grup
             ':id' => $id
         ]);
         
-        return $stm->rowCount();
+        return $stm;
         
     }
 

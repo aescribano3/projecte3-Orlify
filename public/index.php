@@ -21,9 +21,12 @@ $app->get("/info-dades", "App\Controllers\Controlpanel:ctrlIndex");
 $app->get("/imgiorla", "App\Controllers\Imguser:ctrlIndex");
 $app->get("/dadesorla", "App\Controllers\Imguser:ctrlOrla");
 $app->post("/doregister", "App\Controllers\singup:Register");
-$app->post("/create-grup", "App\Controllers\Grup:createGrup");
-$app->post("/modifi-grup", "App\Controllers\Grup:modifiGrup");
-$app->post("/drop-grup", "App\Controllers\Grup:dropGrup");
+$app->post("/create-grup", "App\Controllers\Controlpanel:createGrup");
+$app->post("/modifi-grup", "App\Controllers\Controlpanel:modifiGrup");
+$app->post("/drop-grup", "App\Controllers\Controlpanel:dropGrup");
+$app->post("/create-user", "App\Controllers\Controlpanel:createUser");
+$app->post("/modifi-user", "App\Controllers\Controlpanel:modifiUser");
+$app->post("/drop-user", "App\Controllers\Controlpanel:dropUser");
 
 $app->post("/check-username", "App\Controllers\User:checkuser");
 

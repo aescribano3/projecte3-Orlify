@@ -11,6 +11,16 @@ class Users
         $this->sql = $sql;
     }
 
+    public function getAll(){
+        $users = array();
+        $query = "SELECT * FROM users;";
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $user) {
+            $users[] = $user;
+        }
+
+        return $users;
+    }
+
     public function register($username, $nom, $lastname, $pass, $email, $rol)
     {
         $insertStmt = $this->sql->prepare('INSERT INTO users (username,name, lastname, password, email, rol) VALUES (:username, :name1,  :lastname, :pass, :email, :rol);');
@@ -22,7 +32,7 @@ class Users
             ':email' => $email,
             ':rol' => $rol,
         ]);
-        return $lastInsertId = $this->sql->lastInsertId();;
+        return $this->sql->lastInsertId();;
     }
 
 
@@ -61,10 +71,83 @@ class Users
     }
 
     public function userExists($user)
-{
-    $query = $this->sql->prepare('SELECT COUNT(*) FROM users WHERE username = :user');
-    $query->execute([':user' => $user]);
+    {
+        $query = $this->sql->prepare('SELECT COUNT(*) FROM users WHERE username = :user');
+        $query->execute([':user' => $user]);
 
-    return $query->fetchColumn() > 0;
-}
+        return $query->fetchColumn() > 0;
+    }
+
+    public function dropUser($id){
+            
+        $stm = $this->sql->prepare("DELETE FROM grupuser WHERE idUser=:id;");
+
+        $stm -> execute([
+            ':id' => $id
+        ]);
+
+        $stm = $this->sql->prepare("DELETE FROM users WHERE idUser=:id;");
+        
+        $stm -> execute([
+            ':id' => $id
+        ]);
+        
+        return $stm;
+        
+    }
+
+    public function getProfes(){
+        $profes = array();
+        $query = "SELECT * FROM users WHERE rol = 'professor';";
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $profe) {
+            $profes[] = $profe;
+        }
+
+        return $profes;
+    }
+
+    public function getUserById($id){
+        $query = $this->sql->prepare('SELECT * FROM users WHERE idUser = :id');
+        $query->execute([':id' => $id]);
+
+        return $query->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function modifiUser($id, $username, $name, $lastname, $email, $rol){
+            
+            $stm = $this->sql->prepare("UPDATE users SET username=:username, name=:name, lastname=:lastname, email=:email, rol=:rol WHERE idUser=:id;");
+            
+            $stm -> execute([
+                ':id' => $id,
+                ':username' => $username, 
+                ':name' => $name, 
+                ':lastname' => $lastname,
+                ':email' => $email,
+                ':rol' => $rol
+            ]);
+            
+            return $stm;
+            
+        }
+
+    public function modifiUserGrups($id, $grups){
+            
+            $stm = $this->sql->prepare("DELETE FROM grupuser WHERE idUser=:id;");
+            
+            $stm -> execute([
+                ':id' => $id
+            ]);
+            
+            foreach($grups as $grup){
+                $stm = $this->sql->prepare("INSERT INTO grupuser (idUser, idGrup) VALUES (:id, :grup);");
+                
+                $stm -> execute([
+                    ':id' => $id,
+                    ':grup' => $grup
+                ]);
+            }
+            
+            return $stm;
+            
+        }
 }

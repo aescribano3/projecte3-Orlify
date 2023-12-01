@@ -5,4 +5,6 @@ import "./register.js"
 
 import "./ajax-grup.js";
 
+import "./ajax-user.js";
+
 import "./datatables.js";

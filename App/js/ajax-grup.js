@@ -9,7 +9,7 @@ $("#create-grup-button").on("click", function (event) {
     var grupname = $("#grupname-C").val();
     var grupcurs = $("#grupcurs-C").val();
     var grupteacher = $("#grupteacher-C").val();
-    $("#cancelbttn").click();
+    $("#cancelbttngrup").click();
 
     $.ajax({
         
@@ -33,7 +33,7 @@ $("#create-grup-button").on("click", function (event) {
     });
 }); 
 
-$('[data-modal-target="modifi-grup"]').on('click', function () {
+$('.GetIdGrup').on('click', function () {
 
     selectedGroupId = $(this).attr('id');
 
@@ -48,7 +48,8 @@ $("#modifi-grup-button").on("click", function (event) {
     var grupcurs = $("#grupcurs-M").val();
     var grupteacher = $("#grupteacher-M").val();
 
-    $("#cancelbttn").click();
+
+    $("#cancelbttngrup").click();
 
     $.ajax({
         
@@ -70,7 +71,7 @@ $("#modifi-grup-button").on("click", function (event) {
     });
 });
 
-$(".drop-button").on("click", function (event) {
+$(".drop-button-grup").on("click", function (event) {
 
     selectedGroupId = $(this).attr('id');
 
