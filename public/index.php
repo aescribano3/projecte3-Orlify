@@ -24,6 +24,7 @@ $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Grup:createGrup");
 $app->post("/modifi-grup", "App\Controllers\Grup:modifiGrup");
 $app->post("/drop-grup", "App\Controllers\Grup:dropGrup");
+$app->post("/createorla", "App\Controllers\CreateOrla:ctrlCreateOrla");
 
 $app->post("/check-username", "App\Controllers\User:checkuser");
 

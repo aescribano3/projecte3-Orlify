@@ -10,4 +10,15 @@ class Orla
     {
         $this->sql = $sql;
     }
+    public function createorla($name, $grup, $orla) {
+        $stm = $this->sql->prepare('INSERT INTO orla (name, idGrup, idPlantilla) 
+        VALUES (:name, :grup, :orla)');
+        $stm->execute([
+            'name' => $name, 
+            'grup' => $grup, 
+            'orla' => $orla,
+        ]);
+        return $this->sql->lastInsertId();
+
+    }
 }

@@ -6,3 +6,5 @@ import "./register.js"
 import "./ajax-grup.js";
 
 import "./datatables.js";
+
+import "./ajax-orla.js"
