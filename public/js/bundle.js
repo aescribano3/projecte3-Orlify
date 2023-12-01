@@ -30,6 +30,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 
 /***/ }),
 
+/***/ "./App/js/ajax-orla.js":
+/*!*****************************!*\
+  !*** ./App/js/ajax-orla.js ***!
+  \*****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0__(\"#create-orla-button\").click(function () {\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-success\").hide(); // Asegúrate de que el toast esté oculto\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-error\").hide();\r\n\r\n  var orlaname = jquery__WEBPACK_IMPORTED_MODULE_0__(\"#orlaname\").val();\r\n  console.log(\"nombre orla \" + orlaname);\r\n  var orlagrup = jquery__WEBPACK_IMPORTED_MODULE_0__(\"#orlagrup\").val();\r\n  console.log(\"grupo orla \" + orlagrup);\r\n  var orlaplantilla = jquery__WEBPACK_IMPORTED_MODULE_0__(\"#orlaplantilla\").val();\r\n  console.log(\"plantilla orla \" + orlaplantilla);\r\n  // $(\"#cancelbttn\").click();\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0__.ajax({\r\n    url: \"/createorla\",\r\n    method: \"POST\",\r\n    data: {\r\n      \"orlaname\": orlaname,\r\n      \"orlagrup\": orlagrup,\r\n      \"orlaplantilla\": orlaplantilla,\r\n    },\r\n    beforeSend: function () {\r\n      // Acciones antes de enviar la solicitud (mostrar spinner, etc.)\r\n      jquery__WEBPACK_IMPORTED_MODULE_0__(\"#loading-modal\").show();\r\n    },\r\n    success: function (result) {\r\n        let token = result.token;\r\n        if (token) {\r\n          jquery__WEBPACK_IMPORTED_MODULE_0__(\"#respuestaajax\").html(result.resspuestaajax);\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-error\").hide();\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-success\").show();\r\n        } \r\n    },\r\n    error: function (error) {\r\n      console.log(error);\r\n      let errorServidor = error.statusText;\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-success\").hide();\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#toast-error\").show();\r\n            jquery__WEBPACK_IMPORTED_MODULE_0__(\"#errortoast\").html(errorServidor);\r\n    },\r\n    complete: function () {\r\n      // Acciones después de que la solicitud se complete (ocultar spinner, etc.)\r\n      jquery__WEBPACK_IMPORTED_MODULE_0__(\"#loading-modal\").hide();\r\n    },\r\n  });\r\n});\n\n//# sourceURL=webpack:///./App/js/ajax-orla.js?");
+
+/***/ }),
+
 /***/ "./App/js/datatables.js":
 /*!******************************!*\
   !*** ./App/js/datatables.js ***!
@@ -48,7 +59,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _register_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.js */ \"./App/js/register.js\");\n/* harmony import */ var _ajax_grup_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ajax-grup.js */ \"./App/js/ajax-grup.js\");\n/* harmony import */ var _datatables_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datatables.js */ \"./App/js/datatables.js\");\n\r\nwindow.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0__;\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _register_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.js */ \"./App/js/register.js\");\n/* harmony import */ var _ajax_grup_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ajax-grup.js */ \"./App/js/ajax-grup.js\");\n/* harmony import */ var _datatables_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datatables.js */ \"./App/js/datatables.js\");\n/* harmony import */ var _ajax_orla_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax-orla.js */ \"./App/js/ajax-orla.js\");\n\r\nwindow.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0__;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ }),
 
