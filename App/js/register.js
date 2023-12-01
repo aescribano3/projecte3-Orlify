@@ -21,6 +21,9 @@ var boollength = false;
     var boolguio = false;
 
     $("#registerbttn").prop("disabled", true);
+    $("#updateuserinfo").prop("disabled", true);
+
+
 
 $("#usernameid").on("input", function() {
     var usernameid = $(this).val();
@@ -122,10 +125,11 @@ $("#usernameid").on("input", function() {
 
         if (password==confirmPassword) {
             errorContainer.hide();
+            $("#updateuserinfo").prop("disabled", false);
+
             if(boollength && boolnumero && boollletra && boolguio && booluser){
                 $("#registerbttn").prop("disabled", false);
             }
-
         } else {
             errorContainer.show();
         }

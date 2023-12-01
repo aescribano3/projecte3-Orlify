@@ -43,9 +43,14 @@ class SingUp{
 
         $rutaNuevaCarpeta = './usersimg/';
         $rutaCompleta = $rutaNuevaCarpeta.$register."/";
-
+        
+        
+           
 
         if (mkdir($rutaCompleta, 0750, true)) {
+            if (!empty($_FILES["images"]["tmp_name"][0])) {
+
+
             foreach ($_FILES["images"]["tmp_name"] as $key => $tmp_name) {
                 // Obtener la extensión del archivo original
                 $extension = pathinfo($_FILES["images"]["name"][$key], PATHINFO_EXTENSION);
@@ -62,6 +67,15 @@ class SingUp{
                 // Mover el archivo a la ubicación de destino
                 move_uploaded_file($rutaTemporal, $ruta);
             }
+        }else {
+            // Si no se ha subido ninguna foto, agregar lógica para asignar una foto por defecto
+            $rutaFotoPorDefecto = "./usersimg/default.png"; // Reemplaza esto con la ruta de tu foto por defecto
+        
+            // Copiar la foto por defecto al directorio
+            $ruta = $rutaCompleta . "avatar.jpg";
+            if (copy($rutaFotoPorDefecto, $rutaCompleta . "avatar.jpg")) {
+            }
+         }
         }
 
 
