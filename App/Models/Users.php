@@ -136,7 +136,7 @@ class Users
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function modifiUser($id, $username, $name, $lastname, $email, $rol){
+    public function modifiUser($id, $username, $name, $lastname, $email, $rol, $grups){
             
             $stm = $this->sql->prepare("UPDATE users SET username=:username, name=:name, lastname=:lastname, email=:email, rol=:rol WHERE idUser=:id;");
             
@@ -148,13 +148,7 @@ class Users
                 ':email' => $email,
                 ':rol' => $rol
             ]);
-            
-            return $stm;
-            
-        }
 
-    public function modifiUserGrups($id, $grups){
-            
             $stm = $this->sql->prepare("DELETE FROM grupuser WHERE idUser=:id;");
             
             $stm -> execute([
@@ -172,5 +166,5 @@ class Users
             
             return $stm;
             
-        }
+    }
 }
