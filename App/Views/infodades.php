@@ -80,42 +80,44 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($users as $i => $user) { ?>
                             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
+                                    <?=$user["idUser"]?>
                                 </th>
                                 <td class="px-6 py-4">
-                                    ppi
+                                    <?=$user["username"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    Pere
+                                    <?=$user["name"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    Pi
+                                    <?=$user["lastname"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    ppi@cendrassos.net
+                                    <?=$user["email"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    Alumne
+                                    <?=$user["rol"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-user" data-modal-toggle="modifi-user" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button id="<?=$user["idUser"]?>" data-modal-target="modifi-user" data-modal-toggle="modifi-user" class="GetIdUser block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button id="<?=$user["idUser"]?>" class="drop-button-user block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
                             </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Grups Table -->
-                <div id="GrupTable" class="w-full shadow-md sm:rounded-lg">
+                <div id="GrupTable" class="w-full shadow-md sm:rounded-lg hidden">
                     <table id="TableGrup" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -157,12 +159,12 @@
                                     <?=$grup["idTeacher"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$grup["idGrup"]?>" data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button id="<?=$grup["idGrup"]?>" data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="GetIdGrup block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$grup["idGrup"]?>" class="drop-button block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button id="<?=$grup["idGrup"]?>" class="drop-button-grup block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
@@ -193,6 +195,9 @@
                                     Grup de l'orla
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Plantilla de l'orla
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Modificar
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -201,15 +206,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($orles as $i => $orla) { ?>
                             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    #1
+                                    <?=$orla["idOrla"]?>
                                 </th>
                                 <td class="px-6 py-4">
-                                    Grau desenvolupament d'aplicacions web
+                                    <?=$orla["name"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    2DAW - 2022/2023
+                                    <?=$orla["idGrup"]?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?=$orla["idPlantilla"]?>
                                 </td>
                                 <td class="px-6 py-4">
                                     <button data-modal-target="modifi-orla" data-modal-toggle="modifi-orla" class="block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
@@ -217,11 +226,12 @@
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button class="drop-button block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

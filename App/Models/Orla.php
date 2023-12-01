@@ -19,6 +19,15 @@ class Orla
             'orla' => $orla,
         ]);
         return $this->sql->lastInsertId();
+    }
 
+    public function getAll(){
+        $orles = array();
+        $query = "SELECT * FROM orla;";
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $orla) {
+            $orles[] = $orla;
+        }
+
+        return $orles;
     }
 }
