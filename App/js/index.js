@@ -8,5 +8,8 @@ import "./ajax-user.js";
 import "./ajax-grup.js";
 import "./ajax-orla.js"
 
+import "./generateuser.js"
+
+
 
 import "./datatables.js";

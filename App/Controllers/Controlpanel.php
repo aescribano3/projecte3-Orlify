@@ -95,9 +95,25 @@ class Controlpanel{
 
         $UserModel = $container->get("users");
 
-        $UserModel = $UserModel->register($username, $name, $lastname, $password, $email, $userrol);
+        $register = $UserModel->register($username, $name, $lastname, $password, $email, $userrol);
 
-        if($UserModel){
+        $rutaNuevaCarpeta = './usersimg/';
+        $rutaCompleta = $rutaNuevaCarpeta.$register."/";
+
+
+        $rutaFotoPorDefecto = "./usersimg/default.png"; // Reemplaza esto con la ruta de tu foto por defecto
+        
+            // Copiar la foto por defecto al directorio
+            $ruta = $rutaCompleta . "avatar.jpg";
+            if (mkdir($rutaCompleta, 0750, true)) {
+            if (copy($rutaFotoPorDefecto, $rutaCompleta . "avatar.jpg")) {
+                $addphoto = $UserModel->addphoto($ruta,$register);
+
+            }
+        }
+
+
+        if($register){
             $response->setSession("ajax-message","Usuari creat correctament");
         } else {
             $response->setSession("ajax-message","Error al crear l'usuari");
