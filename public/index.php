@@ -13,7 +13,7 @@ $app->get("/", "App\Controllers\Portada:ctrlIndex");
 $app->get("/login", "App\Controllers\Login:ctrlIndex");
 $app->get("/logout", "App\Controllers\login:ctrlDoLogout");
 $app->post("/dologin", "App\Controllers\login:ctrlDoLogin");
-$app->get("/mis-datos", "App\Controllers\UserData:ctrlIndex");
+$app->get("/mis-datos", "App\Controllers\User:ctrlmisdades");
 $app->get("/register", "App\Controllers\Singup:ctrlIndex");
 $app->get("/carnet", "App\Controllers\Carnet:ctrlIndex");
 $app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex");
@@ -22,9 +22,17 @@ $app->get("/imgiorla", "App\Controllers\Imguser:ctrlIndex");
 $app->get("/dadesorla", "App\Controllers\Imguser:ctrlOrla");
 $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Grup:createGrup");
+<<<<<<< HEAD
 $app->post("/modifi-grup", "App\Controllers\Grup:modifiGrup");
 $app->post("/drop-grup", "App\Controllers\Grup:dropGrup");
 $app->post("/createorla", "App\Controllers\CreateOrla:ctrlCreateOrla");
+=======
+$app->post("/updatedatauser", "App\Controllers\User:Updateuser");
+$app->post("/checkpass", "App\Controllers\User:checkpass");
+
+
+
+>>>>>>> feature-update-info-dades
 
 $app->post("/check-username", "App\Controllers\User:checkuser");
 

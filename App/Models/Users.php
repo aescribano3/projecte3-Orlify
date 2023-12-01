@@ -60,6 +60,29 @@ class Users
         return false;
     }
 
+    public function updateUser($id, $name, $lastname, $email)
+{
+    // Verificar si el usuario con el ID proporcionado existe
+    
+        // Preparar la consulta de actualización
+        $query = $this->sql->prepare('UPDATE users SET name = :name, lastname = :lastname, email = :email WHERE idUser = :idUser');
+
+        // Ejecutar la consulta con los parámetros
+        $query->execute([
+            ':idUser' => $id,
+            ':name' => $name,
+            ':lastname' => $lastname,
+            ':email' => $email
+        ]);
+
+        $query = $this->sql->prepare('SELECT * FROM users WHERE idUser = :idUser');
+        $query->execute([':idUser' => $id]);
+
+        return $query->fetch(\PDO::FETCH_ASSOC);
+
+
+}
+
     public function userExists($user)
 {
     $query = $this->sql->prepare('SELECT COUNT(*) FROM users WHERE username = :user');
