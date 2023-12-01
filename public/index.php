@@ -8,6 +8,7 @@ include "../vendor/autoload.php";
 $contenidor = new \App\Container(__DIR__ . "/../App/config.php"); 
 
 $app = new \Emeset\Emeset($contenidor);
+$app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->get("/", "App\Controllers\Portada:ctrlIndex");
 $app->get("/login", "App\Controllers\Login:ctrlIndex");
