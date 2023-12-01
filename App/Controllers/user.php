@@ -18,14 +18,7 @@ class User{
 
 
     public function ctrlmisdades($request, $response, $container)
-    {
-
-    $r = $request->get("SESSION", "user"); 
-
-        $response->set("user",$r);        
-
-
-        
+    {        
         $response->SetTemplate("misdatos.php");
 
         return $response;
