@@ -52,6 +52,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 
 /***/ }),
 
+/***/ "./App/js/cookies.js":
+/*!***************************!*\
+  !*** ./App/js/cookies.js ***!
+  \***************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n$(document).ready(function () {\r\n    if ($.cookie('acceptCookies') == null) {\r\n        $('#cookie-notification').show();\r\n    } else {\r\n        $('#cookie-notification').hide();\r\n    }\r\n    $(\"#accept-cookies\").click(function () {\r\n        $(\"#cookie-notification\").slideUp(\"slow\");\r\n        $.cookie(\"acceptCookies\", \"2\");\r\n    });\r\n});\n\n//# sourceURL=webpack:///./App/js/cookies.js?");
+
+/***/ }),
+
 /***/ "./App/js/datatables.js":
 /*!******************************!*\
   !*** ./App/js/datatables.js ***!
@@ -81,7 +92,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _register_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.js */ \"./App/js/register.js\");\n/* harmony import */ var _updateuser_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateuser.js */ \"./App/js/updateuser.js\");\n/* harmony import */ var _ajax_user_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax-user.js */ \"./App/js/ajax-user.js\");\n/* harmony import */ var _ajax_grup_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax-grup.js */ \"./App/js/ajax-grup.js\");\n/* harmony import */ var _ajax_orla_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ajax-orla.js */ \"./App/js/ajax-orla.js\");\n/* harmony import */ var _generateuser_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./generateuser.js */ \"./App/js/generateuser.js\");\n/* harmony import */ var _datatables_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./datatables.js */ \"./App/js/datatables.js\");\n\r\nwindow.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0__;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var _register_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register.js */ \"./App/js/register.js\");\n/* harmony import */ var _updateuser_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateuser.js */ \"./App/js/updateuser.js\");\n/* harmony import */ var _ajax_user_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ajax-user.js */ \"./App/js/ajax-user.js\");\n/* harmony import */ var _ajax_grup_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ajax-grup.js */ \"./App/js/ajax-grup.js\");\n/* harmony import */ var _ajax_orla_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ajax-orla.js */ \"./App/js/ajax-orla.js\");\n/* harmony import */ var _generateuser_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./generateuser.js */ \"./App/js/generateuser.js\");\n/* harmony import */ var _cookies_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cookies.js */ \"./App/js/cookies.js\");\n/* harmony import */ var _datatables_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./datatables.js */ \"./App/js/datatables.js\");\n\r\nwindow.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0__;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ }),
 
