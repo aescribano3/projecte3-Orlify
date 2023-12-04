@@ -33,9 +33,9 @@ $("#create-grup-button").on("click", function (event) {
     });
 }); 
 
-$('.GetIdGrup').on('click', function () {
+$('.bttn-M-G').on('click', function () {
 
-    selectedGroupId = $(this).attr('id');
+    selectedGroupId = $(this).closest(".GetIdGrup").attr('id');
 
 });
 
@@ -73,7 +73,7 @@ $("#modifi-grup-button").on("click", function (event) {
 
 $(".drop-button-grup").on("click", function (event) {
 
-    selectedGroupId = $(this).attr('id');
+    selectedGroupId = $(this).closest(".GetIdGrup").attr('id');
 
     $("#toast-success").hide();
     $("#toast-error").hide();

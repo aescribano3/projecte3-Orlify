@@ -81,7 +81,7 @@
                         </thead>
                         <tbody>
                         <?php foreach($users as $i => $user) { ?>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <tr id="<?=$user["idUser"]?>" class="GetIdUser odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <?=$user["idUser"]?>
                                 </th>
@@ -101,12 +101,12 @@
                                     <?=$user["rol"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$user["idUser"]?>" data-modal-target="modifi-user" data-modal-toggle="modifi-user" class="GetIdUser block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button data-modal-target="modifi-user" data-modal-toggle="modifi-user" class="bttn-M-U block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$user["idUser"]?>" class="drop-button-user block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button  class="drop-button-user block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
@@ -145,7 +145,7 @@
                         </thead>
                         <tbody>
                         <?php foreach($grups as $i => $grup) { ?>
-                            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <tr id="<?=$grup["idGrup"]?>" class="GetIdGrup odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="idGrup px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <?=$grup["idGrup"]?>
                                 </th>
@@ -159,12 +159,12 @@
                                     <?=$grup["idTeacher"]?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$grup["idGrup"]?>" data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="GetIdGrup block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button data-modal-target="modifi-grup" data-modal-toggle="modifi-grup" class="bttn-M-G block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button id="<?=$grup["idGrup"]?>" class="drop-button-grup block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button class="drop-button-grup block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Eliminar
                                     </button>
                                 </td>
@@ -173,11 +173,7 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- comentario -->
-                <!-- comentario2 -->
-                <!-- comentario3 -->
-
+                
                 <!-- Orles Table -->
                 <div id="OrlaTable" class="w-full shadow-md sm:rounded-lg hidden">
                     <table id="TableOrla" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

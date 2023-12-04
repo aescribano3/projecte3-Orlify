@@ -133,10 +133,8 @@ class Controlpanel{
             $grups = $_POST["grups"];
     
             $UserModel = $container->get("users");
-
-            $GupsUser = $UserModel->modifiUserGrups($id, $grups);
     
-            $ModedUser = $UserModel->modifiUser($id, $username, $name, $lastname, $email, $userrol);
+            $ModedUser = $UserModel->modifiUser($id, $username, $name, $lastname, $email, $userrol, $grups);
     
             if($UserModel){
                 $response->setSession("ajax-message","Usuari modificat correctament");

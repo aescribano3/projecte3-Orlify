@@ -35,9 +35,9 @@ $("#create-user-button").on("click", function (event) {
     });
 }); 
 
-$('.GetIdUser').on('click', function () {
+$('.bttn-M-U').on('click', function () {
 
-    selectedUserId = $(this).attr('id');
+    selectedUserId = $(this).closest(".GetIdUser").attr('id');
 
 });
 
@@ -82,7 +82,7 @@ $("#modifi-user-button").on("click", function (event) {
 
 $(".drop-button-user").on("click", function (event) {
 
-    selectedUserId = $(this).attr('id');
+    selectedUserId = $(this).closest(".GetIdUser").attr('id');
 
     $("#toast-success").hide();
     $("#toast-error").hide();
