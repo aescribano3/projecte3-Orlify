@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'datatables.net';
 
 $('#UsersLink').on('click', function () {
     $('#UserTable').show();
