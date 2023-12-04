@@ -31,8 +31,6 @@ $app->post("/drop-user", "App\Controllers\Controlpanel:dropUser");
 $app->post("/createorla", "App\Controllers\CreateOrla:ctrlCreateOrla");
 $app->post("/updatedatauser", "App\Controllers\User:Updateuser");
 $app->post("/checkpass", "App\Controllers\User:checkpass");
-
-
 $app->post("/check-username", "App\Controllers\User:checkuser");
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
