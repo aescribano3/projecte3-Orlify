@@ -173,11 +173,7 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- comentario -->
-                <!-- comentario2 -->
-                <!-- comentario3 -->
-
+                
                 <!-- Orles Table -->
                 <div id="OrlaTable" class="w-full shadow-md sm:rounded-lg hidden">
                     <table id="TableOrla" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
