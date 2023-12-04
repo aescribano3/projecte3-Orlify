@@ -28,10 +28,6 @@ $app->post("/drop-grup", "App\Controllers\Grup:dropGrup");
 $app->post("/createorla", "App\Controllers\CreateOrla:ctrlCreateOrla");
 $app->post("/updatedatauser", "App\Controllers\User:Updateuser");
 $app->post("/checkpass", "App\Controllers\User:checkpass");
-
-
-
-
 $app->post("/check-username", "App\Controllers\User:checkuser");
 
 
