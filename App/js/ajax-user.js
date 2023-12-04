@@ -18,16 +18,31 @@ $("#create-user-button").on("click", function (event) {
     $.ajax({
         
         url: "/create-user",
-        type: "POST",
-        data: {username: username, name: name, lastname: lastname, email: email, password: password, userrol: userrol},
+        method: "POST",
+        data: {
+            "username": username,
+            "name": name,
+            "lastname": lastname,
+            "email": email,
+            "password": password,
+            "userrol": userrol
+        },
         beforeSend: function () {
             $('#loading-modal').show();
         },
         success: function (result) {
-            $("#toast-success").show();
+            let token = result.token;
+            if (token) {
+                $("#respuestaajax").html(result.resspuestaajax);
+                $("#toast-error").hide();
+                $("#toast-success").show();
+            } 
         },
         error: function (error) {
+            let errorServidor = error.statusText;
+            $("#toast-success").hide();
             $("#toast-error").show();
+            $("#errortoast").html(errorServidor);
         },
         complete: function () {
             $("#loading-modal").hide();
@@ -58,21 +73,36 @@ $("#modifi-user-button").on("click", function (event) {
         });
 
     
-        $("#cancelbttnuser").click();
     
         $.ajax({
             
             url: "/modifi-user",
-            type: "POST",
-            data: {id: selectedUserId, username: username, name: name, lastname: lastname, email: email, userrol: userrol, grups: grups},
+            method: "POST",
+            data: {
+                "id": selectedUserId,
+                "username": username,
+                "name": name,
+                "lastname": lastname,
+                "email": email,
+                "userrol": userrol,
+                "grups": grups
+            },
             beforeSend: function () {
                 $('#loading-modal').show();
             },
             success: function (result) {
-                $("#toast-success").show();
+                let token = result.token;
+                if (token) {
+                    $("#respuestaajax").html(result.resspuestaajax);
+                    $("#toast-error").hide();
+                    $("#toast-success").show();
+                }
             },
             error: function (error) {
+                let errorServidor = error.statusText;
+                $("#toast-success").hide();
                 $("#toast-error").show();
+                $("#errortoast").html(errorServidor);
             },
             complete: function () {
                 $("#loading-modal").hide();
@@ -90,17 +120,26 @@ $(".drop-button-user").on("click", function (event) {
     $.ajax({
         
         url: "/drop-user",
-        type: "POST",
-        data: {id: selectedUserId},
+        method: "POST",
+        data: {
+            "id": selectedUserId
+        },
         beforeSend: function () {
             $('#loading-modal').show();
         },
         success: function (result) {
-            
-            $("#toast-success").show();
+            let token = result.token;
+            if (token) {
+                $("#respuestaajax").html(result.resspuestaajax);
+                $("#toast-error").hide();
+                $("#toast-success").show();
+            }
         },
         error: function (error) {
+            let errorServidor = error.statusText;
+            $("#toast-success").hide();
             $("#toast-error").show();
+            $("#errortoast").html(errorServidor);
         },
         complete: function () {
             $("#loading-modal").hide();
