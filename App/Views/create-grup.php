@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="grupteacher-C" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
+                                <label for="grupteacher-C" class="block mb-2 text-sm font-medium text-white">Professor</label>
                                 <select name="grupteacher" id="grupteacher-C" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                 <?php foreach($profes as $i => $profe) { ?>
                                     <option value="<?=$profe["idUser"]?>"><?php echo $profe["name"]." ". $profe["lastname"]?></option>
