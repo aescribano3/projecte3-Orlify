@@ -21,14 +21,12 @@ class CreateOrla
             $token = true;
             $resspuestaajax = "Orla creada correctament";
             $response->set("resspuestaajax", $resspuestaajax);
-            //$response->setSession("ajax-message","Orla creada correctament");
             $response->set("token", $token);
         } else {
                 $token = false;
                 $resspuestaajax = "Error al crear la orla";
                 $response->set("resspuestaajax", $resspuestaajax);
                 $response->set("token", $token);
-            //$response->setSession("ajax-message","Error al crear la orla");
         }
         
         $response->setJSON();

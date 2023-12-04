@@ -38,10 +38,17 @@ class Controlpanel{
         $GrupModel = $GrupModel->createGrup($grupname, $grupcurs, $grupteacher);
 
         if($GrupModel){
-            $response->setSession("ajax-message","Grup creat correctament");
+            $token = true;
+            $resspuestaajax = "Grup creat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         } else {
-            $response->setSession("ajax-message","Error al crear el grup");
+            $token = false;
+            $resspuestaajax = "Error al crear el grup";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
+        $response->setJSON();
 
         return $response;
     }
@@ -58,10 +65,17 @@ class Controlpanel{
         $GrupModel = $GrupModel->modifiGrup($id, $grupname, $grupcurs, $grupteacher);
 
         if($GrupModel){
-            $response->setSession("ajax-message","Grup modificat correctament");
+            $token = true;
+            $resspuestaajax = "Grup modificat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         } else {
-            $response->setSession("ajax-message","Error al modificar el grup");
+            $token = false;
+            $resspuestaajax = "Error al modificar el grup";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
+        $response->setJSON();
 
         return $response;
     }
@@ -75,10 +89,17 @@ class Controlpanel{
         $GrupModel = $GrupModel->dropGrup($id);
 
         if($GrupModel){
-            $response->setSession("ajax-message","Grup eliminat correctament");
+            $token = true;
+            $resspuestaajax = "Grup Eliminat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         } else {
-            $response->setSession("ajax-message","Error al eliminar el grup");
+            $token = false;
+            $resspuestaajax = "Error al eliminar el grup";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
+        $response->setJSON();
 
         return $response;
     }
@@ -114,10 +135,18 @@ class Controlpanel{
 
 
         if($register){
-            $response->setSession("ajax-message","Usuari creat correctament");
+            $token = true;
+            $resspuestaajax = "Usuari creat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+            
         } else {
-            $response->setSession("ajax-message","Error al crear l'usuari");
+            $token = false;
+            $resspuestaajax = "Error al crear l'usuari";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
+        $response->setJSON();
 
         return $response;
     }
@@ -137,10 +166,18 @@ class Controlpanel{
             $ModedUser = $UserModel->modifiUser($id, $username, $name, $lastname, $email, $userrol, $grups);
     
             if($UserModel){
-                $response->setSession("ajax-message","Usuari modificat correctament");
+                $token = true;
+                $resspuestaajax = "Usuari modificat correctament";
+                $response->set("resspuestaajax", $resspuestaajax);
+                $response->set("token", $token);
             } else {
-                $response->setSession("ajax-message","Error al modificar l'usuari");
+                $token = false;
+                $resspuestaajax = "Error al modificar l'usuari";
+                $response->set("resspuestaajax", $resspuestaajax);
+                $response->set("token", $token);
             }
+
+            $response->setJSON();
     
             return $response;
         
@@ -155,10 +192,17 @@ class Controlpanel{
         $UserModel = $UserModel->dropUser($id);
 
         if($UserModel){
-            $response->setSession("ajax-message","Usuari eliminat correctament");
+            $token = true;
+            $resspuestaajax = "Usuari eliminat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         } else {
-            $response->setSession("ajax-message","Error al eliminar l'usuari");
+            $token = false;
+            $resspuestaajax = "Error al eliminar l'usuari";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
+        $response->setJSON();
 
         return $response;
     }

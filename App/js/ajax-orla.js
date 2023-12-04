@@ -2,7 +2,7 @@ import $ from "jquery";
 
 $("#create-orla-button").click(function () {
 
-  $("#toast-success").hide(); // Asegúrate de que el toast esté oculto
+  $("#toast-success").hide(); 
   $("#toast-error").hide();
 
   var orlaname = $("#orlaname").val();
@@ -21,7 +21,6 @@ $("#create-orla-button").click(function () {
       "orlaplantilla": orlaplantilla,
     },
     beforeSend: function () {
-      // Acciones antes de enviar la solicitud (mostrar spinner, etc.)
       $("#loading-modal").show();
     },
     success: function (result) {
@@ -39,7 +38,6 @@ $("#create-orla-button").click(function () {
             $("#errortoast").html(errorServidor);
     },
     complete: function () {
-      // Acciones después de que la solicitud se complete (ocultar spinner, etc.)
       $("#loading-modal").hide();
     },
   });
