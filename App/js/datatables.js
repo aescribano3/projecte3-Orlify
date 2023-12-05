@@ -2,6 +2,8 @@ import $ from 'jquery';
 import 'datatables.net';
 
 $("#TableUser").DataTable( {
+    "paging": false,
+    "info": false,
     "language": {
         "sSearch": "Cercar:",
         "lengthMenu": "Mostrar _MENU_ lineas per pagina",
@@ -16,6 +18,8 @@ $("#TableUser").DataTable( {
 }} );
 
 $("#TableGrup").DataTable( {
+    "paging": false,
+    "info": false,
     "language": {
         "sSearch": "Cercar:",
         "lengthMenu": "Mostrar _MENU_ lineas per pagina",
@@ -30,6 +34,8 @@ $("#TableGrup").DataTable( {
 }} );
 
 $("#TableOrla").DataTable( {
+    "paging": false,
+    "info": false,
     "language": {
         "sSearch": "Cercar:",
         "lengthMenu": "Mostrar _MENU_ lineas per pagina",
@@ -39,7 +45,7 @@ $("#TableOrla").DataTable( {
         "infoFiltered": "(filtrat d'un total de _MAX_ total registres)",
         'paginate': {
             'previous': 'Anterior',
-            'next': 'Seguent'
+            'next': 'Seguent',
     }
 }} );
 

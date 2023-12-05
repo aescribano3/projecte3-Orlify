@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 
+use App\Container;
+
 class Controlpanel{
 
     public function ctrlIndex ($request, $response, $container){
@@ -17,10 +19,14 @@ class Controlpanel{
         $ProfModel = $container->get("users");
         $profes = $ProfModel->getProfes();
 
+        $plantillaMoel = $container->get("plantilla");
+        $plantilles = $plantillaMoel->getAllPlantilles();
+
         $response->set("profes", $profes);
         $response->set("users", $users);
         $response->set("grups", $grups);
         $response->set("orles", $orles);
+        $response->set("plantilles", $plantilles);
 
         $response->SetTemplate("infodades.php");
 
@@ -205,5 +211,80 @@ class Controlpanel{
         $response->setJSON();
 
         return $response;
+    }
+
+    // orles
+    public function ctrlCreateOrla($request, $response, $container) {
+        $orlaModel = $container->get("orla"); // obtenim el model de la orla
+        
+        $namePost = $request->get(INPUT_POST, "orlaname");
+        $grupPost = $request->get(INPUT_POST, "orlagrup");
+        $orlaPost = $request->get(INPUT_POST, "orlaplantilla");
+
+        $createOrla = $orlaModel->createorla($namePost, $grupPost, $orlaPost);
+
+        if ($createOrla) {
+            $token = true;
+            $resspuestaajax = "Orla creada correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        } else {
+                $token = false;
+                $resspuestaajax = "Error al crear la orla";
+                $response->set("resspuestaajax", $resspuestaajax);
+                $response->set("token", $token);
+        }
+        
+        $response->setJSON();
+
+        return $response;
+    }
+
+    public function ctrlmodifiOrla ($request, $response, $container){
+        $orlesModel = $container->get("orla"); 
+
+        $idOrla = $request->get(INPUT_POST, "orlaId");
+        $orlaName = $request->get(INPUT_POST, "orlaname");
+        $orlaGrup = $request->get(INPUT_POST, "orlagrup");
+        $orlaPlantilla = $request->get(INPUT_POST, "orlaplantilla");
+
+
+        $modifiOrla = $orlesModel->updateOrla($idOrla, $orlaName, $orlaGrup, $orlaPlantilla);
+
+        if($modifiOrla){
+            $token = true;
+            $resspuestaajax = "Orla modificada correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        } else {
+            $token = false;
+            $resspuestaajax = "Error al modificar la orla";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        }
+        $response->setJSON();
+        return $response;
+    }
+    public function ctrldropOrla($request, $response, $Container){
+        $orlaModel = $Container->get("orla");
+
+        $idOrla = $request->get(INPUT_POST, "orlaId");
+        $eliminarOrla = $orlaModel->dropOrla($idOrla); 
+
+        if($eliminarOrla){
+            $token = true;
+            $resspuestaajax = "Orla eliminada correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        } else {
+            $token = false;
+            $resspuestaajax = "Error al eliminar la orla";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        }
+
+        $response->setJSON();
+        return $response;
+
     }
 }
