@@ -30,4 +30,9 @@ class Orla
 
         return $orles;
     }
-}
+    public function getorla($id){
+        $query = $this->sql->prepare('SELECT * FROM orla WHERE idUser = :id');
+        $query->execute([':id' => $id]);
+    
+        return $query->fetchAll(\PDO::FETCH_ASSOC);}
+}   

@@ -122,6 +122,23 @@ class Controlpanel{
         return $response;
     }
 
+    public function ctrlgetuser($request, $response, $container)
+    {        
+        $id = $request->get(INPUT_POST, "id");
+
+        $UserModel = $container->get("users");
+
+        $UserModel = $UserModel->getUserById($id);
+
+
+        
+        $response->Set("data",$UserModel);
+
+        $response->setJson(); 
+
+        return $response;
+    }
+
     public function modifiUser ($request, $response, $container){
             
             $id = $request->get(INPUT_POST, "id");
