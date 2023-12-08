@@ -43,24 +43,26 @@ $('.bttn-M-U').on('click', function () {
 
     selectedUserId = $(this).closest(".GetIdUser").attr('id');
 
-    
+
+    $("#username-M").val($(this).closest(".GetIdUser").attr('username'));
 
     $.ajax({
             
         url: "/getuser",
         type: "POST",
-        data: {selectedUserId},
+        data: {id:selectedUserId},
         beforeSend: function () {
             $('#loading-modal').show();
         },
         success: function (result) {
-            console.log(result["user"]);
 
-            $("#username-M").val(result["user"]["username"]);
-            $("#name-M").val(result["user"]["name"]);
-            $("#lastname-M").val(result["user"]["lastname"]);
-            $("#email-M").val(result["user"]["email"]);
-            $("#userrol-M").val(result["user"]["rol"]);
+
+            $("#username-M").val(result["data"]["username"]);
+            $("#name-M").val(result["data"]["name"]);
+            $("#lastname-M").val(result["data"]["lastname"]);
+            $("#email-M").val(result["data"]["email"]);
+            $("#userrol-M").val(result["data"]["rol"]);
+            
         },
         error: function (error) {
             $("#toast-error").show();

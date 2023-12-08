@@ -17,11 +17,11 @@
 foreach ($orlas as $orla) {
 ?>
                     <li>
-                        <a href="#" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="/ver-aquesta-orla?r=<?=$orla["idOrla"];?>" class="hover:bg-red-600 hover:text-white flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <span class="ms-3"><?=$orla["name"];?></span>
                         </a>
                     </li>
-                   
+                    <?php } ?>
                 </ul>
 </aside>
 
@@ -31,9 +31,12 @@ foreach ($orlas as $orla) {
 <?php
 foreach ($imgs as $img) {
 ?>
-        <div class="d-flex align-items-center justify-content-between h-60 w-64 mt-10">
-            <img class="h-60 w-60" src=<?=$img["url"];?> alt=<?=$img["IdImg"];?>>
-            <a href="">Escollir imatge</a> <a class="ml-20" href="h">Informar</a>
+        <div class="relative d-flex align-items-center justify-content-between h-60 w-64 mt-10">
+            <?php if($img["Selecionada"]){?>
+                    <span class="bg-blue-200 text-xs font-medium text-blue-800 text-center p-0.5 leading-none rounded-full px-2 dark:bg-blue-900 dark:text-blue-200 absolute -translate-y-1/2 translate-x-1/2 left-auto top-0 right-0">Selecionada</span>
+           <?php }?>
+            <img class="h-60 w-60" src=<?=$img["url"];?> alt=<?=$img["idImg"];?>>
+            <a href="/selecionarimatge?r=<?=$img["idImg"];?>">Escollir imatge</a> <a class="ml-20" href="h">Informar</a>
         </div>
 <?php } ?>
 

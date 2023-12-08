@@ -39,7 +39,10 @@ class Imguser{
 
        $OrlaModel = $container->get("orla");
 
-       $orla = $OrlaModel->getorla($id);
+
+       
+
+       $orla = $OrlaModel->getuserorlas($id);
 
        $response->set("orlas",$orla);
 
@@ -50,26 +53,82 @@ class Imguser{
 
         return $response;
     }
+    public function ctrlorlaimg($request, $response, $container)
+    {
+        $orla = $request->get(INPUT_GET, "r");
+
+        $response->setSession("idorla",$orla);
+
+        
+        $id =intval($orla);
+
+
+        $id= $request->get("SESSION", "idusuari"); 
+
+
+        $imgModel = $container->get("imgs");
+
+        $img = $imgModel->getimgsperorla($id,$orla);
+
+        
+        $response->set("imgs",$img);
+
+
+        $OrlaModel = $container->get("orla");
+
+        $orla = $OrlaModel->getuserorlas($id);
+
+
+        $response->set("orlas",$orla);
+
+        $response->SetTemplate("imgiorla.php");
+        return $response;
+    }
+    
+
+    public function selectimg($request, $response, $container)
+    {
+
+        $orla= $request->get("SESSION", "idorla"); 
+        $idusuari= $request->get("SESSION", "idusuari");
+
+        $img = $request->get(INPUT_GET, "r");
+
+       
+        $imgModel = $container->get("imgs");
+        $noimg = $imgModel->desselecionarimatge($orla,$idusuari);
+
+
+        $img = $imgModel->selecionarimatge($img);
+
+
+
+
+        $response->redirect("location:/imatges-usuari?r=$idusuari");
+
+        return $response;
+    }
+
+        
 
     public function afegirimatge($request, $response, $container)
     {
 
-        $id= $request->get("SESSION", "idusuari"); 
+        $orla= $request->get("SESSION", "idorla"); 
+
+
+        $id= $request->get("SESSION", "idusuari");
 
         $rutaNuevaCarpeta = './usersimg/';
         $rutaCompleta = $rutaNuevaCarpeta.$id.'/'."orla/";
-        echo($rutaCompleta);
 
         
             // Verifica si la carpeta ya existe
             if (!file_exists($rutaCompleta)) {
                 // Intenta crear la carpeta
-                if (mkdir($rutaCompleta, 0755, true)) {
-                    echo "La carpeta se ha creado correctamente en la ruta: $ruta";
-                } else {
-                    echo "Error al intentar crear la carpeta en la ruta: $ruta";
-                }
-            } else {
+                mkdir($rutaCompleta, 0755, true);
+            };
+            
 
                         $archivos = scandir($rutaCompleta);
 
@@ -80,7 +139,6 @@ class Imguser{
                         $nom = count($archivos);
 
                         // Muestra la cantidad de archivos
-                        echo "Número de archivos en la carpeta: $nom";
 
                         foreach ($_FILES["imagen"]["tmp_name"] as $key => $tmp_name) {
                             // Obtener la extensión del archivo original
@@ -100,15 +158,15 @@ class Imguser{
                         }
 
                 
-            }
-            
+           
+            $imgModel = $container->get("imgs");
+
+            $img = $imgModel->afegirimatge($ruta,$id,$orla);
         
 
-        die();
-        $response->setSession("idusuari","");
         
-        $response->SetTemplate("imgiorla.php");
 
+        $response->redirect("location:/imatges-usuari?r=$id");
 
         return $response;
     }

@@ -126,6 +126,8 @@ class Controlpanel{
     {        
         $id = $request->get(INPUT_POST, "id");
 
+    
+
         $UserModel = $container->get("users");
 
         $UserModel = $UserModel->getUserById($id);
