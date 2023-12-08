@@ -21,6 +21,15 @@ class Orla
         return $this->sql->lastInsertId();
     }
 
+    
+    public function getuserorlas($id){
+        $query = $this->sql->prepare('SELECT orla.idOrla, grup.name FROM orla JOIN grup ON orla.idGrup = grup.idGrup JOIN grupuser ON grupuser.idGrup = grup.idGrup WHERE grupuser.idUser=:id');
+        $query->execute([':id' => $id]);
+    
+        return $query->fetchAll(\PDO::FETCH_ASSOC);}
+    
+
+
     public function getAll(){
         $orles = array();
         $query = "SELECT * FROM orla;";
@@ -47,4 +56,13 @@ class Orla
         ]);
         return $stm->rowCount();
     }
-}
+
+    public function getorla($id){
+        $query = $this->sql->prepare('SELECT * FROM orla WHERE idgrup = :id');
+        $query->execute([':id' => $id]);
+    
+        return $query->fetchAll(\PDO::FETCH_ASSOC);}
+}   
+
+
+    

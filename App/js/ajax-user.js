@@ -2,6 +2,9 @@ import $ from 'jquery';
 
 var selectedUserId = 0;
 
+
+
+
 $("#create-user-button").on("click", function (event) {
     $("#toast-success").hide();
     $("#toast-error").hide();
@@ -51,12 +54,45 @@ $("#create-user-button").on("click", function (event) {
 }); 
 
 $('.bttn-M-U').on('click', function () {
+    
 
     selectedUserId = $(this).closest(".GetIdUser").attr('id');
+
+
+    $("#username-M").val($(this).closest(".GetIdUser").attr('username'));
+
+    $.ajax({
+            
+        url: "/getuser",
+        type: "POST",
+        data: {id:selectedUserId},
+        beforeSend: function () {
+            $('#loading-modal').show();
+        },
+        success: function (result) {
+
+
+            $("#username-M").val(result["data"]["username"]);
+            $("#name-M").val(result["data"]["name"]);
+            $("#lastname-M").val(result["data"]["lastname"]);
+            $("#email-M").val(result["data"]["email"]);
+            $("#userrol-M").val(result["data"]["rol"]);
+            
+        },
+        error: function (error) {
+            $("#toast-error").show();
+        },
+        complete: function () {
+            $("#loading-modal").hide();
+        }
+    });
 
 });
 
 $("#modifi-user-button").on("click", function (event) {
+
+
+
     
         $("#toast-success").hide();
         $("#toast-error").hide();
@@ -67,6 +103,9 @@ $("#modifi-user-button").on("click", function (event) {
         var email = $("#email-M").val();
         var userrol = $("#userrol-M").val();
         var grups = [];
+
+
+
 
         $('#dropdown input[type="checkbox"]:checked').each(function() {
             grups.push($(this).val());

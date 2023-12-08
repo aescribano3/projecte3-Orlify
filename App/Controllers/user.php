@@ -25,6 +25,11 @@ class User{
     }
 
 
+   
+
+   
+
+
     public function checkpass($request, $response, $container)
     {
 
@@ -68,12 +73,7 @@ class User{
         $user = $userModel->updateUser($id,$name,$lastname,$email);
 
         $response->setSession("user", $user);
-        
-   
-
-
-
-
+    
 
         $rutaNuevaCarpeta = './usersimg/';
         $rutaCompleta = $rutaNuevaCarpeta.$user["idUser"]."/";

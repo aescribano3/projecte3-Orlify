@@ -21,7 +21,10 @@ class Login{
         $userModel = $container->get("users");
         $user = $userModel->validateUser($username, $password);
 
-        
+        if($user["rol"]=="professor"){
+            $response->setSession("professor",true);
+        }
+
 
         if($user) {
             $response->setSession("user", $user);
@@ -39,6 +42,7 @@ class Login{
     function ctrlDoLogout($request, $response, $container){
         $response->setSession("user", []);
         $response->setSession("logged", false);
+        $response->setSession("professor",false);
         $response->redirect("location: /login");
         return $response;
     }

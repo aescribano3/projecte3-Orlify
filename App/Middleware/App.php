@@ -23,6 +23,9 @@ class App {
         $logged = $request->get("SESSION","logged"); 
         $response->set("logged",$logged);
 
+        $professor = $request->get("SESSION","professor"); 
+        $response->set("professor",$professor);
+
         $user = $request->get("SESSION","user"); 
         $response->set("user",$user);
 
