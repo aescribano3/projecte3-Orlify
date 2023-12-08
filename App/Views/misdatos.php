@@ -2,10 +2,10 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/main.css">
-  <title>Mis Datos</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/main.css">
+<title>Mis Datos</title>
 </head>
 <body >
     <?php include "header.php" ?>
@@ -20,11 +20,14 @@
             Canviar imatge
         </label>
         <input type="file" id="imagen" name="imagen[]" accept="image/*" hidden>
-
+        <input type="hidden" id="capturedImageData" name="capturedImageData" />
         </div>
     </div>
+    <video id="camera-preview" class="w-64 h-64 rounded-full" autoplay></video>
+    <button id="capture-btn">Capture</button>
     </div>
     <div class="w-full p-4 ">  
+    <canvas id="captured-image" width="460" height="460" class="rounded-full m-1"></canvas>
         <div class="relative z-0 w-full mb-4 group">
             <input type="text" name="floating_username" id="floating_username" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer" value=<?=$user["username"];?> readonly />
             <label for="floating_username" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-red-600 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nom d'usuari</label>
@@ -53,10 +56,10 @@
             <input type="password" name="confirm-password" id="confirm-password" placeholder=" " class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-red-600 peer" required>
             
             <div class="p-4 mb-4 text-sm text-red-600 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert" id="errorContainerPass">
-                            <span class="font-medium">alerta!</span> Les contrasenyes no coincideixen.
-                          </div>            
+                <span class="font-medium">alerta!</span> Les contrasenyes no coincideixen.
+            </div>            
         </div>
-       
+    
         </div>
         <div class="relative z-0 w-full group">
 
@@ -65,13 +68,12 @@
             </div>
         </div>
         <button id="updateuserinfo" type="button" class="text-white bg-green-700 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Actualizar</button>            
-        <button  class="text-white bg-gray-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Cancelar
-            </button>
+        <button  class="text-white bg-gray-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Cancelar</button>
     </form>
 
         </div>
     </div>
-       
+    
     <script src="/js/flowbite.min.js"></script>
     <script src="/js/bundle.js"></script>
     <?php  include "footer.php" ?>
