@@ -34,6 +34,9 @@ class Container extends EmesetContainer
             $this["grupuser"] = function ($c) {
                 return new \App\Models\GrupUser($c["db"]->getConnection());
             };
+            $this["plantilla"] = function ($c) {
+                return new \App\Models\Plantilla($c["db"]->getConnection());
+            };
 
             $this["db"] = function ($c) {
                 return new \App\Models\Db(

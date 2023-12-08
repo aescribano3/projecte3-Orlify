@@ -30,4 +30,21 @@ class Orla
 
         return $orles;
     }
+    public function updateOrla($idOrla, $name, $idGrup, $idPlantilla) {
+        $stm = $this->sql->prepare('UPDATE orla SET name = :name, idGrup = :idGrup, idPlantilla = :idPlantilla WHERE idOrla = :idOrla');
+        $stm->execute([
+            'idOrla' => $idOrla,
+            'name' => $name,
+            'idGrup' => $idGrup,
+            'idPlantilla' => $idPlantilla,
+        ]);
+        return $stm->rowCount();
+    }
+    public function dropOrla($idOrla) {
+        $stm = $this->sql->prepare('DELETE FROM orla WHERE idOrla = :idOrla');
+        $stm->execute([
+            'idOrla' => $idOrla,
+        ]);
+        return $stm->rowCount();
+    }
 }
