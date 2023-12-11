@@ -19,8 +19,16 @@ $app->get("/register", "App\Controllers\Singup:ctrlIndex");
 $app->get("/carnet", "App\Controllers\Carnet:ctrlIndex");
 $app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex");
 $app->get("/info-dades", "App\Controllers\Controlpanel:ctrlIndex");
-$app->get("/imgiorla", "App\Controllers\Imguser:ctrlIndex");
-$app->get("/dadesorla", "App\Controllers\Imguser:ctrlOrla");
+$app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
+$app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
+$app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
+
+
+
+
+
+$app->get("/selecionarimatge", "App\Controllers\imguser:selectimg");
+$app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser");
 $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Controlpanel:createGrup");
 $app->post("/modifi-grup", "App\Controllers\Controlpanel:modifiGrup");
@@ -33,6 +41,11 @@ $app->post("/modifiorla", "App\Controllers\Controlpanel:ctrlmodifiOrla");
 $app->post("/droporla", "App\Controllers\Controlpanel:ctrldropOrla");
 $app->post("/updatedatauser", "App\Controllers\User:Updateuser");
 $app->post("/checkpass", "App\Controllers\User:checkpass");
+$app->post("/afegir-usuari-foto", "App\Controllers\imguser:afegirimatge");
+
+
+
+
 $app->post("/check-username", "App\Controllers\User:checkuser");
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
