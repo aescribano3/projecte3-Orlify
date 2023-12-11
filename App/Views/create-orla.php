@@ -14,21 +14,19 @@
                             <div>
                                 <label for="orlagrup" class="block mb-2 text-sm font-medium text-white">Grup</label>
                                 <select name="grupselected" id="orlagrup" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
-                                    <option disabled selected>-- Seleccionar -- </option>
-                                    <option value="1">4 ESO</option>
-                                    <option value="2">2 DAW</option>
-                                    <option value="3">2 SMX</option>
-                                    <option value="4">2 AFI</option>
+                                    <option disabled selected >-- seleccionar --</option>
+                                    <?php foreach ($grups as $grup) : ?>
+                                        <option value="<?= $grup["idGrup"] ?>"><?= $grup["name"] . " del curs " . $grup["curs"] ?></option>
+                                        <?php endforeach; ?>
                                 </select>
                             </div>
                             <div>
                                 <label for="orlaplantilla" class="block mb-2 text-sm font-medium text-white">Plantilla</label>
-                                <select name="selectedorla" id="orlaplantilla" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
-                                    <option disabled selected>-- Seleccionar -- </option>
-                                    <option value="1">Plantilla 1</option>
-                                    <option value="2">Plantilla 2</option>
-                                    <option value="3">Plantilla 3</option>
-                                    <option value="4">Plantilla 4</option>
+                                <select name="orlaplantilla-M" id="orlaplantilla" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                    <option disabled selected >-- seleccionar --</option>
+                                    <?php foreach ($plantilles as $plantilla) : ?>
+                                        <option value="<?= $plantilla["idPlantilla"] ?>"><?= $plantilla["name"] ?></option>
+                                    <?php endforeach; ?>                                    
                                 </select>
                             </div>
                         </div>
