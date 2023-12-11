@@ -105,8 +105,6 @@ class User{
 
             $capturedImage = base64_decode($capturedImageData);
 
-            die(var_dump($capturedImageData));
-
             $extension = pathinfo($capturedImage, PATHINFO_EXTENSION);
 
             $nombreArchivo = "avatar." . $extension;
