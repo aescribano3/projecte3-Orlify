@@ -601,11 +601,11 @@ video {
 .z-50 {
   z-index: 50;
 }
-.m-4 {
-  margin: 1rem;
-}
 .m-1 {
   margin: 0.25rem;
+}
+.m-4 {
+  margin: 1rem;
 }
 .-mx-1 {
   margin-left: -0.25rem;
