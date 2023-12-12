@@ -93,6 +93,10 @@ class User{
                     move_uploaded_file($rutaTemporal, $ruta);
 
                     $userPhoto = $userModel->addphoto($ruta, $id);
+
+                    $r["avatar"] = $ruta;
+                    
+                    $response->setSession("user", $r);
                 }
             }
             
@@ -113,6 +117,10 @@ class User{
             file_put_contents($ruta, $capturedImage);
 
             $userPhoto = $userModel->addphoto($ruta, $id);
+
+            $r["avatar"] = $ruta;
+
+            $response->setSession("user", $r);
         }
 
         return $response;
