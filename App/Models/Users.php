@@ -44,7 +44,6 @@ class Users
             ':ruta' => $ruta
         ]);
 
-        // Asegúrate de manejar $result según tus necesidades
         return $result;
     }
 

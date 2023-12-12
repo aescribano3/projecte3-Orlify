@@ -27,8 +27,6 @@ var boollength = false;
 
 $("#usernameid").on("input", function() {
     var usernameid = $(this).val();
-    console.log(usernameid);
-
 
     $.ajax({
         url: "/check-username",
