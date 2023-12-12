@@ -12,19 +12,28 @@
     <div class="columns-1 md:columns-2">
     
     <div class="w-full p-4 flex items-center justify-center relative group h-[80vh]">
-    <div class="relative overflow-hidden rounded-lg">
-        <img class="w-64 h-64 rounded-full transition duration-300 transform hover:scale-110" src=<?=$user["avatar"];?> alt="Rounded avatar">
-        <div class="absolute inset-0 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white transition duration-300 ">
-        <form id="infouserupdate" enctype="multipart/form-data" class="flex flex-col items-center justify-center h-full">
-        <label for="imagen" class="mt-[20%]">
-            Canviar imatge
-        </label>
-        <input type="file" id="imagen" name="imagen[]" accept="image/*" hidden>
-        <input type="hidden" id="capturedImageData" name="capturedImageData" />
+        <div class="flex flex-col items-center justify-center">
+            <div id="imgInput" class="relative overflow-hidden rounded-lg">
+                <img class="w-64 h-64 rounded-full transition duration-300 transform hover:scale-110" src="<?=$user["avatar"];?>" alt="Rounded avatar">
+                <div class="absolute inset-0 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white transition duration-300">
+                    <form id="infouserupdate" enctype="multipart/form-data" class="flex flex-col items-center justify-center h-full">
+                    <label for="imagen" class="mt-[20%]">
+                        Cambiar imagen
+                    </label>
+                    <input type="file" id="imagen" name="imagen[]" accept="image/*" hidden>
+                    <input type="hidden" id="capturedImageData" name="capturedImageData" />
+                </div>
+            </div>
+            <div class="mt-4">
+                <p id="capture-btn" class="hidden cursor-pointer">Capturar imatge</p>
+            </div>
+            <div class="mt-4">
+                <video id="camera-preview" class="w-64 h-64 rounded-full hidden" autoplay></video>
+            </div>
+            <div class="mt-4">
+                <p id="toogleInput" class="cursor-pointer">Canviar input de l'imatge</p>
+            </div>
         </div>
-    </div>
-    <video id="camera-preview" class="w-64 h-64 rounded-full" autoplay></video>
-    <button id="capture-btn">Capture</button>
     </div>
     <div class="w-full p-4 ">  
     <canvas id="captured-image" width="460" height="460" class="rounded-full m-1"></canvas>

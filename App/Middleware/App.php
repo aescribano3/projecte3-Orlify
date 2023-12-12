@@ -29,6 +29,8 @@ class App {
         $user = $request->get("SESSION","user"); 
         $response->set("user",$user);
 
+        //print_r($user);
+
 
         return $response;
     }

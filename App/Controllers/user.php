@@ -25,11 +25,6 @@ class User{
     }
 
 
-   
-
-   
-
-
     public function checkpass($request, $response, $container)
     {
 
@@ -73,8 +68,6 @@ class User{
         $user = $userModel->updateUser($id,$name,$lastname,$email);
 
         $response->setSession("user", $user);
-        
-    
 
         $rutaNuevaCarpeta = './usersimg/';
         $rutaCompleta = $rutaNuevaCarpeta.$user["idUser"]."/";
@@ -84,10 +77,8 @@ class User{
         if (empty($capturedImageData)) {
 
             if (!empty($_FILES["imagen"]["tmp_name"][0])) {
-                        
-                if (file_exists($user["avatar"])) {
-                    unlink($user["avatar"]);
-                }
+
+                unlink($user["avatar"]);
 
                 foreach ($_FILES["imagen"]["tmp_name"] as $key => $tmp_name) {
                     
@@ -100,18 +91,24 @@ class User{
                     $rutaTemporal = $_FILES["imagen"]["tmp_name"][$key];
                 
                     move_uploaded_file($rutaTemporal, $ruta);
+
+                    $userPhoto = $userModel->addphoto($ruta, $id);
+
+                    $r["avatar"] = $ruta;
+                    
+                    $response->setSession("user", $r);
                 }
             }
             
         } else {
 
-            if (file_exists($user["avatar"])) {
-                unlink($user["avatar"]);
-            }
+            unlink($user["avatar"]);
 
-            $capturedImage = base64_decode($capturedImageData);
+            $capturedImageStr = substr($capturedImageData, strpos($capturedImageData, ",") + 1);
 
-            $extension = pathinfo($capturedImage, PATHINFO_EXTENSION);
+            $capturedImage = base64_decode($capturedImageStr);
+
+            $extension = "png";
 
             $nombreArchivo = "avatar." . $extension;
 
@@ -119,6 +116,11 @@ class User{
 
             file_put_contents($ruta, $capturedImage);
 
+            $userPhoto = $userModel->addphoto($ruta, $id);
+
+            $r["avatar"] = $ruta;
+
+            $response->setSession("user", $r);
         }
 
         return $response;

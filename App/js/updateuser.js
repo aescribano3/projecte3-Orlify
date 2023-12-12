@@ -33,7 +33,7 @@ function updateUserInfo() {
                     processData: false,
                     contentType: false,
                     success: function(response) {
-                        //window.location.href = "/mis-datos";
+                        window.location.href = "/mis-datos";
                     }
                 });
                 errorContainerX.hide();

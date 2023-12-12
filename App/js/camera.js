@@ -33,4 +33,14 @@ $(document).ready(function () {
         $('#capturedImageData').val(imageDataURL);
     });
     
+    $('#camera-preview, #capture-btn').hide();
+
+    $('#toogleInput').click(function() {
+        // Alterna la visibilidad de la imagen y la cámara
+        $('#imgInput img, #camera-preview').toggle();
+
+        // Alterna la visibilidad del input de archivo y el botón de captura
+        $('#imagen, #capture-btn').toggle();
+    });
+
 });

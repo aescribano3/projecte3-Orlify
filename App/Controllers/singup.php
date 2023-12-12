@@ -81,6 +81,8 @@ class SingUp{
 
         $addphoto = $model->addphoto($ruta,$register);
 
+        $response->SetTemplate("portada.php");
+
         return $response;
     }
 }

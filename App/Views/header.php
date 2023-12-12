@@ -14,7 +14,7 @@
     <a href='/register' class='text-white hover:bg-green-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 '>Register</a>
 <?php else : ?>
     <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation">
-        <img src=<?= $user["avatar"] ?> class="h-12 w-12 rounded-full">
+        <img src=<?= $user["avatar"] ?> alt="perfil-img" class="h-12 w-12 rounded-full">
     </button>
 
     <!-- Dropdown menu -->
