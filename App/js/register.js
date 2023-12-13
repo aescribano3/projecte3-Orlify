@@ -127,10 +127,22 @@ $("#usernameid").on("input", function() {
             errorContainer.hide();
             $("#updateuserinfo").prop("disabled", false);
 
+            console.log(boollength);
+            console.log(boolnumero);
+            console.log(boollletra);
+            console.log(boolguio);
+
+
             if(boollength && boolnumero && boollletra && boolguio && booluser){
                 $("#registerbttn").prop("disabled", false);
             }
         } else {
             errorContainer.show();
+        }
+        if(boollength && boolnumero && boollletra && boolguio){
+            $("#registerbttn").prop("disabled", false);
+        }
+        else{
+            $("#registerbttn").prop("disabled", true);
         }
     });

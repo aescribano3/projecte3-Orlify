@@ -44,3 +44,8 @@ body{
 .alturadiv{
     min-height: 85vh;
 }
+.apersonal{
+    display: block;
+    margin-top: 1rem;
+    max-width: 95%;
+}

@@ -167,4 +167,37 @@ class Users
             return $stm;
             
     }
+    public function updateUserSettoken($email, $reset_token_hash, $reset_token_expires_at){
+        $query = $this->sql->prepare('UPDATE users
+            SET 
+            reset_token_hash = :reset_token_hash, 
+            reset_token_expires_at = :reset_token_expires_at
+            WHERE email = :email');
+        $query->execute([
+            ':email' => $email,
+            ':reset_token_hash' => $reset_token_hash,
+            ':reset_token_expires_at' => $reset_token_expires_at
+        ]);
+        return true;
+    }
+    public function getHashToEqualToken($token){
+        $query = $this->sql->prepare('SELECT * FROM users WHERE reset_token_hash = :reset_token_hash');
+        $query->execute([
+            ':reset_token_hash' => $token
+        ]);
+        return $query->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function updatePassword($reset_token_hash, $password){
+        $query = $this->sql->prepare('UPDATE users
+            SET 
+            password = :password
+            WHERE reset_token_hash = :reset_token_hash');
+        $query->execute([
+            ':reset_token_hash' => $reset_token_hash,
+            ':password' => $password
+        ]);
+        return true;
+    }
+
+    
 }
