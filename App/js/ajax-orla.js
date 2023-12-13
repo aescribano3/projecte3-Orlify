@@ -103,7 +103,6 @@ $("#btn-modify-orla").on("click", function (event) {
 $(".drop-button-orla").on("click", function (event) {
 
   selectedOrlaId = $(this).closest(".GetIdOrla").attr('id');
-  alert(`Eliminar orla Nº ${selectedOrlaId}`);
 
   $("#toast-success").hide();
   $("#toast-error").hide();
