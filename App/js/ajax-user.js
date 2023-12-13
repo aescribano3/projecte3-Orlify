@@ -54,10 +54,8 @@ $("#create-user-button").on("click", function (event) {
 }); 
 
 $('.bttn-M-U').on('click', function () {
-    
 
     selectedUserId = $(this).closest(".GetIdUser").attr('id');
-
 
     $("#username-M").val($(this).closest(".GetIdUser").attr('username'));
 
@@ -70,7 +68,6 @@ $('.bttn-M-U').on('click', function () {
             $('#loading-modal').show();
         },
         success: function (result) {
-
 
             $("#username-M").val(result["data"]["username"]);
             $("#name-M").val(result["data"]["name"]);

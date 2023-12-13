@@ -1,53 +1,59 @@
 import $ from 'jquery';
 import 'datatables.net';
 
-$("#TableUser").DataTable( {
+var userTable = $("#TableUser").DataTable( {
     "paging": false,
     "info": false,
     "language": {
         "sSearch": "Cercar:",
-        "lengthMenu": "Mostrar _MENU_ lineas per pagina",
-        "zeroRecords": "No s'ha trobat cap resultat",
-        "info": "Pagina _PAGE_ de _PAGES_",
-        "infoEmpty": "No hi ha registres disponibles",
-        "infoFiltered": "(filtrat d'un total de _MAX_ total registres)",
-        'paginate': {
-            'previous': 'Anterior',
-            'next': 'Seguent'
     }
-}} );
+});
+$("#TableUser_filter input")
+.unbind()
+.bind("input", function (e) {
+    if (this.value.length >= 3) {
+        userTable.search(this.value).draw();
+    }
+    if (this.value == "") {
+        userTable.search("").draw();
+    }
+});
 
-$("#TableGrup").DataTable( {
+var grupTable = $("#TableGrup").DataTable( {
     "paging": false,
     "info": false,
     "language": {
         "sSearch": "Cercar:",
-        "lengthMenu": "Mostrar _MENU_ lineas per pagina",
-        "zeroRecords": "No s'ha trobat cap resultat",
-        "info": "Pagina _PAGE_ de _PAGES_",
-        "infoEmpty": "No hi ha registres disponibles",
-        "infoFiltered": "(filtrat d'un total de _MAX_ total registres)",
-        'paginate': {
-            'previous': 'Anterior',
-            'next': 'Seguent'
     }
-}} );
+});
+$("#TableGrup_filter input")
+.unbind()
+.bind("input", function (e) {
+    if (this.value.length >= 3) {
+        grupTable.search(this.value).draw();
+    }
+    if (this.value == "") {
+        grupTable.search("").draw();
+    }
+});
 
-$("#TableOrla").DataTable( {
+var orlaTable = $("#TableOrla").DataTable( {
     "paging": false,
     "info": false,
     "language": {
-        "sSearch": "Cercar:",
-        "lengthMenu": "Mostrar _MENU_ lineas per pagina",
-        "zeroRecords": "No s'ha trobat cap resultat",
-        "info": "Pagina _PAGE_ de _PAGES_",
-        "infoEmpty": "No hi ha registres disponibles",
-        "infoFiltered": "(filtrat d'un total de _MAX_ total registres)",
-        'paginate': {
-            'previous': 'Anterior',
-            'next': 'Seguent',
+        "sSearch": "Cercar:"
     }
-}} );
+});
+$("#TableOrla_filter input")
+.unbind()
+.bind("input", function (e) {
+    if (this.value.length >= 3) {
+        orlaTable.search(this.value).draw();
+    }
+    if (this.value == "") {
+        orlaTable.search("").draw();
+    }
+});
 
 
 $('#UsersLink').on('click', function () {

@@ -8,7 +8,7 @@
                     <form class="space-y-4 md:space-y-6" action="/modifi-grup" method="POST">
                         <div class="grid md:grid-cols-3 md:gap-4">
                             <div>
-                                <label for="grupname-C" class="block mb-2 text-sm font-medium text-white">Nom</label>
+                                <label for="grupname-M" class="block mb-2 text-sm font-medium text-white">Nom</label>
                                 <select name="grupname" id="grupname-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option value="4 ESO">4 ESO</option>
                                     <option value="2 SMX">2 SMX</option>
@@ -17,7 +17,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="grupcurs-C" class="block mb-2 text-sm font-medium text-white">Grup</label>
+                                <label for="grupcurs-M" class="block mb-2 text-sm font-medium text-white">Grup</label>
                                 <select name="grupcurs" id="grupcurs-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                     <option value="2023/2024">2023/2024</option>
                                     <option value="2022/2023">2022/2023</option>
@@ -26,7 +26,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="grupteacher-C" class="block mb-2 text-sm font-medium text-white">Professor</label>
+                                <label for="grupteacher-M" class="block mb-2 text-sm font-medium text-white">Professor</label>
                                 <select name="grupteacher" id="grupteacher-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                                 <?php foreach($profes as $i => $profe) { ?>
                                     <option value="<?=$profe["idUser"]?>"><?php echo $profe["name"]." ". $profe["lastname"]?></option>

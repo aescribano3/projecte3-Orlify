@@ -161,14 +161,10 @@ class Controlpanel{
     {        
         $id = $request->get(INPUT_POST, "id");
 
-    
-
         $UserModel = $container->get("users");
 
         $UserModel = $UserModel->getUserById($id);
 
-
-        
         $response->Set("data",$UserModel);
 
         $response->setJson(); 
@@ -284,6 +280,7 @@ class Controlpanel{
         $response->setJSON();
         return $response;
     }
+
     public function ctrldropOrla($request, $response, $Container){
         $orlaModel = $Container->get("orla");
 
