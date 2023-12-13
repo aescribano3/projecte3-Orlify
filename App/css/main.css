@@ -80,4 +80,9 @@ body{
 #TableOrla_filter label {
     font-weight: bold;
     margin-left: 25px;
+}   
+.apersonal{
+    display: block;
+    margin-top: 1rem;
+    max-width: 95%;
 }

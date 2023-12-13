@@ -26,7 +26,7 @@
                         <input type="password" name="pass" id="pass" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5" required="">
                     </div>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-sm font-medium text-white hover:underline">Has oblidat la contrasenya?</a>
+                        <a href="/forgot-password" class="text-sm font-medium text-white hover:underline">Has oblidat la contrasenya?</a>
                     </div>
                     <button type="submit" class="w-full text-red-700 bg-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Inicia sessió</button>
                     <p class="text-sm font-light text-white">
