@@ -44,3 +44,40 @@ body{
 .alturadiv{
     min-height: 85vh;
 }
+
+#TableUser_filter input {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: #1f1f1f;
+    border-radius: 5px;
+    border-style: solid;
+}
+#TableUser_filter label {
+    font-weight: bold;
+    margin-left: 25px;
+}
+#TableGrup_filter input {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: #1f1f1f;
+    border-radius: 5px;
+    border-style: solid;
+}
+#TableGrup_filter label {
+    font-weight: bold;
+    margin-left: 25px;
+}
+#TableOrla_filter input {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    border: #1f1f1f;
+    border-radius: 5px;
+    border-style: solid;
+}
+#TableOrla_filter label {
+    font-weight: bold;
+    margin-left: 25px;
+}
