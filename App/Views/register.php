@@ -66,32 +66,33 @@
               </div>
           </div>
       </div>
+      <div data-popover id="popover-password" role="tooltip" class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+        <div class="p-3 space-y-2">
+          <h3 class="font-semibold text-gray-900 dark:text-white">Requisits Minims <svg class='w-3 h-3 me-2.5 text-gray-300 dark:text-gray-400' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'><path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'/ hidden></svg>
+            <svg class='w-3.5 h-3.5 me-2 text-green-400 dark:text-green-500' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'><path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 5.917 5.724 10.5 15 1.5'/ hidden></svg>
+          </h3>
+          <p>Ha de contenir:</p>
+          <ul>
+              <li class="flex items-center mb-1" id="length">
+              
+                  Conte entre 6 i 13 caracteres
+              </li>
+              <li class="flex items-center mb-1" id="numero">
+              Conte al menys un numero
+              </li>
+              <li class="flex items-center" id="lletra">
+                  Conte al menys una lletra
+              </li>
+              <li class="flex items-center" id="guio">
+                  Conte al menys un guio
+              </li>
+          </ul>
+      </div>
+    <div data-popper-arrow></div>
     </section>
+
     <script src="/js/flowbite.min.js"></script>
     <script src="/js/bundle.js"></script>
     <?php  include "footer.php" ?>
-    <div data-popover id="popover-password" role="tooltip" class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
-        <div class="p-3 space-y-2">
-            <h3 class="font-semibold text-gray-900 dark:text-white">Requisits Minims <svg class='w-3 h-3 me-2.5 text-gray-300 dark:text-gray-400' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'><path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'/ hidden></svg>
-                <svg class='w-3.5 h-3.5 me-2 text-green-400 dark:text-green-500' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'><path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 5.917 5.724 10.5 15 1.5'/ hidden></svg>
-</h3>
-            <p>Ha de contenir:</p>
-            <ul>
-                <li class="flex items-center mb-1" id="length">
-                
-                    Conte entre 6 i 13 caracteres
-                </li>
-                <li class="flex items-center mb-1" id="numero">
-                Conte al menys un numero
-                </li>
-                <li class="flex items-center" id="lletra">
-                    Conte al menys una lletra
-                </li>
-                <li class="flex items-center" id="guio">
-                    Conte al menys un guio
-                </li>
-            </ul>
-    </div>
-    <div data-popper-arrow></div>
 </body>
 </html>
