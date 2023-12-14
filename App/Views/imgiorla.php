@@ -37,10 +37,10 @@ foreach ($imgs as $img) {
            
                 <img class="h-60 w-60" src=<?=$img["url"];?> alt=<?=$img["idImg"];?>>
                 <?php
-            if(!$professor): ?>    
+            if($user["rol"]=="alumne"): ?>    
                 <a href="/selecionarimatge?r=<?=$img["idImg"];?>">Escollir imatge</a> <a class="ml-20" href="h">Informar</a>
-                <?php else: ?>
-                  <a class="ml-20"  href="/esborrar-img?r=<?=$img["idImg"];?>">Esborrar</a>
+                <?php else:  ?>
+                  <a class="ml-20"  href="/esborrar-img?r=<?=$img["idImg"];?>">Esborrar</a> 
             <?php endif;?>
 
         </div>
@@ -48,8 +48,8 @@ foreach ($imgs as $img) {
 
         
     <?php
-    if($professor): ?>
-  <div id="miDropzone" class="relative rounded-full d-flex align-items-center bg-red-600 justify-content-center h-60 w-60 mt-10">
+            if($user["rol"]!="alumne"): ?>    
+              <div id="miDropzone" class="relative rounded-full d-flex align-items-center bg-red-600 justify-content-center h-60 w-60 mt-10">
     <form id="miFormulario" action="/afegir-usuari-foto?r=<?=$img["idUser"];?>" method="post" enctype="multipart/form-data" class=" flex flex-col items-center justify-center h-full">   
      <p class="text-2xl text-stone-50">Afegir imatge</p>
      <p class="text-lg text-stone-50">Fer clic o arrosegar</p>
