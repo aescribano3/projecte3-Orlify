@@ -198,5 +198,14 @@ class Users
         return true;
     }
 
+    public function getProfeUser($id){
+        $query = $this->sql->prepare('SELECT u.* FROM users u
+            INNER JOIN grupuser gu ON u.idUser = gu.idUser
+            INNER JOIN grup g ON gu.idGrup = g.idGrup
+            WHERE g.idTeacher = :id');
+        $query->execute([':id' => $id]);
+
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    } 
     
 }

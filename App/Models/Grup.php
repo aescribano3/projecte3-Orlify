@@ -73,4 +73,11 @@ class Grup
         
     }
 
+    public function getProfeGrup($id){
+        $stm = $this->sql->prepare("SELECT * FROM grup WHERE idTeacher=:id;");
+        $stm->execute([':id' => $id]);
+        $results = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $results;
+    }
+
 }

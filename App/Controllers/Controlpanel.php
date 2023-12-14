@@ -7,11 +7,16 @@ class Controlpanel{
 
     public function ctrlIndex ($request, $response, $container){
 
+        $userL = $request->get("SESSION","user");
+        $userLId = $userL["idUser"];
+
         $UserModel = $container->get("users");
         $users = $UserModel->getAll();
+        $usersP = $UserModel->getProfeUser($userLId);
 
         $GrupModel = $container->get("grup");
         $grups = $GrupModel->getAll();
+        $grupsP = $GrupModel->getProfeGrup($userLId);
 
         $OrlaModel = $container->get("orla");
         $orles = $OrlaModel->getAll();
@@ -22,6 +27,8 @@ class Controlpanel{
         $plantillaMoel = $container->get("plantilla");
         $plantilles = $plantillaMoel->getAllPlantilles();
 
+        $response->set("usersP", $usersP);
+        $response->set("grupsP", $grupsP);
         $response->set("profes", $profes);
         $response->set("users", $users);
         $response->set("grups", $grups);
