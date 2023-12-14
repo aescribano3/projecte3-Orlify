@@ -106,4 +106,6 @@ body{
     object-fit: cover;
     border-radius: 50%;
 }
-
+.borderP{
+    border-bottom: 3px solid black;
+}
