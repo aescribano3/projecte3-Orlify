@@ -1,6 +1,8 @@
 import jQuery from "jquery";
+
 window.$ = window.jQuery = jQuery;
 
+import "./dropzone.js";
 import "./register.js";
 import "./updateuser.js";
 import "./ajax-user.js";

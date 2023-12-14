@@ -10,21 +10,25 @@ var password;
 var errorContainer = $("#errorContainerPass");
 var errorContainerUser = $("#errorContainerUser");
 
-
+//oculta els containers de error de contrasenya i usuari
 errorContainer.hide();
 errorContainerUser.hide();
 
 
-var boollength = false;
+
+// es declaren els booelans per veure si compleix els requisits 
+    var boollength = false;
     var boollletra = false;
     var boolnumero = false;
     var boolguio = false;
 
+
+    //es desactiven els botons de registre i de updateuser
     $("#registerbttn").prop("disabled", true);
     $("#updateuserinfo").prop("disabled", true);
 
 
-
+//quan es prem una tecla al input de nom de usuari es crida un ajax per comprovar si existeix al servidor
 $("#usernameid").on("input", function() {
     var usernameid = $(this).val();
 
@@ -58,7 +62,11 @@ $("#usernameid").on("input", function() {
 
 
 
+//quan es prem la tecla de contrasenya
 
+
+
+//totes les condicions fan el mateix si es compleix el regex mostra el missatge o no i activa o  desactiva el boolea
     $("#password").on("input", function() {
         password = $(this).val();
         var length = $("#length");
@@ -117,6 +125,8 @@ $("#usernameid").on("input", function() {
     
     });
 
+
+    //quan es comenca a repetir al contrasenya compara si es la mateixa que la primera que has ficat si ho fas bé 
 
     $("#confirm-password").on("input", function() {
         var confirmPassword = $(this).val();

@@ -27,6 +27,20 @@ class Imgs
         
             return $query->fetchAll(\PDO::FETCH_ASSOC);}
 
+            public function getImg($id) {
+                $query = $this->sql->prepare('SELECT * FROM imgs WHERE idImg = :id');
+                $query->execute([':id' => $id]);
+            
+                return $query->fetch(\PDO::FETCH_ASSOC);
+            }
+            
+            public function deleteImg($id) {
+                $query = $this->sql->prepare('DELETE FROM imgs WHERE idImg = :id');
+                $query->execute([':id' => $id]);
+            
+            
+                return $query->rowCount();
+            }
 
             public function afegirimatge($url,$id,$orla){
                 $stm = $this->sql->prepare('INSERT INTO imgs (url,idUser,idOrla) 

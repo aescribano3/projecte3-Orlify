@@ -23,6 +23,8 @@ $app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
 $app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
 $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
 $app->get("/selecionarimatge", "App\Controllers\imguser:selectimg");
+$app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
+
 $app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser");
 $app->post("/getgrup", "App\Controllers\Controlpanel:ctrlgetgrup");
 $app->post("/doregister", "App\Controllers\singup:Register");
