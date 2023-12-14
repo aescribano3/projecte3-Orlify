@@ -16,8 +16,6 @@ $("#create-user-button").on("click", function (event) {
     var password = $("#password-C").val();
     var userrol = $("#userrol-C").val();
 
-    $("#cancelbttnuser").click();
-
     $.ajax({
         
         url: "/create-user",
