@@ -13,6 +13,28 @@ class Imguser{
     }
 
 
+    public function deleteimg($request, $response, $container)
+    {
+
+        $orla= $request->get("SESSION", "idorla"); 
+        $idusuari= $request->get("SESSION", "idusuari");
+
+        $idimg = $request->get(INPUT_GET, "r");
+
+        $imgModel = $container->get("imgs");
+
+        $img = $imgModel->getimg($idimg);
+        
+        unlink($img["url"]);
+
+        $img = $imgModel->deleteimg($idimg);
+
+        $response->redirect("location:/imatges-usuari?r=$idusuari"); 
+
+        return $response;
+    }
+
+
     public function ctrlimatgeuser($request, $response, $container)
     {
 
@@ -53,6 +75,8 @@ class Imguser{
 
         return $response;
     }
+
+    
     public function ctrlorlaimg($request, $response, $container)
     {
         $orla = $request->get(INPUT_GET, "r");
@@ -162,11 +186,14 @@ class Imguser{
             $imgModel = $container->get("imgs");
 
             $img = $imgModel->afegirimatge($ruta,$id,$orla);
-        
 
-        
 
-        $response->redirect("location:/imatges-usuari?r=$id");
+            $response->set("response",$ruta ); 
+
+
+        $response->setJson();  
+        
+            
 
         return $response;
     }

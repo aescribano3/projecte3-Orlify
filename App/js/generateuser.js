@@ -2,11 +2,14 @@ import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
 
+
+//quan es prem el boto crida a la funcio de generar random user
 $("#generate-user-button").on("click", function() {
     generaterandomuser();
 });
 
 
+//la funcio es molt simple obte els valors de l'ajax i els fica al formulari per mostrar les dades generades
 function generaterandomuser() {
 $.ajax({
     url: 'https://randomuser.me/api/',

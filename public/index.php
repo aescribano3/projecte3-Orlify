@@ -28,6 +28,8 @@ $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
 
 
 $app->get("/selecionarimatge", "App\Controllers\imguser:selectimg");
+$app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
+
 $app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser");
 $app->post("/doregister", "App\Controllers\singup:Register");
 $app->post("/create-grup", "App\Controllers\Controlpanel:createGrup");
