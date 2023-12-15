@@ -7,11 +7,10 @@ $("#create-orla-button").click(function () {
   $("#toast-error").hide();
 
   var orlaname = $("#orlaname").val();
-  console.log("nombre orla " + orlaname);
   var orlagrup = $("#orlagrup").val();
-  console.log("grupo orla " + orlagrup);
   var orlaplantilla = $("#orlaplantilla").val();
-  console.log("plantilla orla " + orlaplantilla);
+  var orlakey = $("#orlakey").val();
+  var orlapublic = $("#orlapublic").val();
 
   $.ajax({
     url: "/createorla",
@@ -20,6 +19,8 @@ $("#create-orla-button").click(function () {
       "orlaname": orlaname,
       "orlagrup": orlagrup,
       "orlaplantilla": orlaplantilla,
+      "orlakey": orlakey,
+      "orlapublic": orlapublic,
     },
     beforeSend: function () {
       $("#loading-modal").show();
@@ -48,23 +49,19 @@ $("#create-orla-button").click(function () {
 $('.bttn-M-O').on('click', function () {
 
   selectedOrlaId = $(this).closest(".GetIdOrla").attr('id');
-  $("#orlaamodificar").attr("placeholder", `Modificar orla Nº ${selectedOrlaId}`);
 
 });
 
 $("#btn-modify-orla").on("click", function (event) {
   
-
-  
       $("#toast-success").hide();
       $("#toast-error").hide();
   
       var orlaname = $("#orlaname-M").val();
-      console.log("nombre orla " + orlaname);
       var orlagrup = $("#orlagrup-M").val();
-      console.log("grupo orla " + orlagrup);
       var orlaplantilla = $("#orlaplantilla-M").val();
-      console.log("plantilla orla " + orlaplantilla);
+      var orlakey = $("#orlakey-M").val();
+      var orlapublic = $("#orlapublic-M").val();
   
       $.ajax({
           
@@ -75,6 +72,8 @@ $("#btn-modify-orla").on("click", function (event) {
             "orlaname": orlaname,
             "orlagrup": orlagrup,
             "orlaplantilla": orlaplantilla,
+            "orlakey": orlakey,
+            "orlapublic": orlapublic,
           },
           beforeSend: function () {
               $('#loading-modal').show();

@@ -6,11 +6,7 @@
                         Modificar orla
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="/modifiorla" method="POST">
-                        <div class="grid md:grid-cols-2 md:gap-6">
-                            <div>
-                                <label for="orlaamodificar" class="block mb-2 text-sm font-medium text-white">Orla a modificar</label>
-                                <input type="text" id="orlaamodificar" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="" disabled>
-                            </div>
+                        <div class="grid md:grid-cols-3 md:gap-4">
                             <div>
                                 <label for="orlaname-M" class="block mb-2 text-sm font-medium text-white">Nom</label>
                                 <input type="text" name="orlaname-M" id="orlaname-M" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Nou Nom" required>
@@ -31,6 +27,17 @@
                                     <?php foreach ($plantilles as $plantilla) : ?>
                                         <option value="<?= $plantilla["idPlantilla"] ?>"><?= $plantilla["name"] ?></option>
                                     <?php endforeach; ?>                                    
+                                </select>
+                            </div>
+                            <div>
+                                <label for="orlakey-M" class="block mb-2 text-sm font-medium text-white">Clau Orla</label>
+                                <input type="password" name="orlakey-M" id="orlakey-M" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="••••••••" required>
+                            </div>
+                            <div>
+                                <label for="orlapublic-M" class="block mb-2 text-sm font-medium text-white">Clau Orla</label>
+                                <select name="orlapublic-M" id="orlapublic-M" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                                    <option value="1">Publica</option>
+                                    <option value="0">Privada</option>
                                 </select>
                             </div>
                         </div>

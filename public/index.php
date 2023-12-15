@@ -41,6 +41,7 @@ $app->post("/updatedatauser", "App\Controllers\User:Updateuser");
 $app->post("/checkpass", "App\Controllers\User:checkpass");
 $app->post("/afegir-usuari-foto", "App\Controllers\imguser:afegirimatge");
 $app->post("/check-username", "App\Controllers\User:checkuser");
+$app->post("/checkkey", "App\Controllers\ViewOrla:CheckKey");
 
 
 $app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
