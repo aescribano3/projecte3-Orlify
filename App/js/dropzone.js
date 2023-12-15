@@ -1,30 +1,34 @@
 import Dropzone from 'dropzone';
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    let miDropzone;
+  let miDropzone;
 
-    miDropzone = new Dropzone("#miFormulario", {
-      url: document.getElementById('miFormulario').getAttribute('action'), //conte la ruta a la que s'enviara el formulari 
-      paramName: "imagen[]",  //es fica el mateix nom de parametre per que arribi bé al php
-      acceptedFiles: 'image/*',
-      autoProcessQueue: false, //aixo evita que la imatge es puji quan es solta al servidor 
-      init: function () {
-        this.on("addedfile", function (file) {
-          // Oculta la vista previa
-          file.previewElement.style.display = "none"; //amaga el estil de mostrar la imatge
-        });
+  miDropzone = new Dropzone("#miFormulario", {
+    url: document.getElementById('miFormulario').getAttribute('action'),
+    paramName: "imagen[]",
+    acceptedFiles: 'image/*',
+    autoProcessQueue: false,
+    init: function () {
+      this.on("addedfile", function (file) {
+        file.previewElement.style.display = "none";
+      });
 
-        // event per escoltar la opcio de clickar el boto de formulari
-        document.getElementById('enviarFormularioButton').addEventListener('click', function () {
-          miDropzone.processQueue();
+      // Agregamos un listener al botón para que llame a la función al hacer clic
+      document.getElementById('enviarFormularioButton').addEventListener('click', function () {
+        // Llamamos a la función personalizada al hacer clic en el botón
+        
+        enviarFormulario();
 
-        });
-          //quan el servidor retorna la resposta recarrega la pagina
-        this.on("success", function (file, response) {
-            location.reload(true);
-          
-        });
-      },
-    });
-  });  
+      });
+
+      this.on("success", function (file, response) {
+        location.reload(true);
+      });
+    },
+  });
+
+  function enviarFormulario() {
+
+    miDropzone.processQueue();
+  }
+});
