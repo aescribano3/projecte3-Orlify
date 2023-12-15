@@ -154,6 +154,27 @@ class Imguser{
         return $response;
     }
 
+    
+    public function denegarinformar($request, $response, $container)
+    {
+
+        $orla= $request->get("SESSION", "idorla"); 
+        $idusuari= $request->get("SESSION", "idusuari");
+
+        $img = $request->get(INPUT_GET, "r");
+
+       
+        $imgModel = $container->get("imgs");
+
+
+        $img = $imgModel->desinformimg($img);
+
+
+        $response->redirect("location:/imatges-usuari?r=$idusuari");
+
+        return $response;
+    }
+
         
 
     public function afegirimatge($request, $response, $container)

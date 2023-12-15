@@ -43,7 +43,12 @@ foreach ($imgs as $img) {
             if($user["rol"]=="alumne"): ?>    
                 <a href="/selecionarimatge?r=<?=$img["idImg"];?>">Escollir imatge</a> <a class="ml-20" href="/informarimatge?r=<?=$img["idImg"];?>">Informar</a>
                 <?php else:  ?>
-                  <a class="ml-20"  href="/esborrar-img?r=<?=$img["idImg"];?>">Esborrar</a> 
+                  <a href="/esborrar-img?r=<?=$img["idImg"];?>">Esborrar</a>
+                  <?php if($img["Informada"]){?>
+
+                  <a class="ml-20"  href="/denegarinformar?r=<?=$img["idImg"];?>">Denegar peticio</a> 
+                  <?php }?>
+
             <?php endif;?>
 
         </div>
@@ -55,7 +60,7 @@ foreach ($imgs as $img) {
               <div id="miDropzone" class="relative rounded-full d-flex align-items-center bg-red-600 justify-content-center h-60 w-60 mt-10">
     <form id="miFormulario" action="/afegir-usuari-foto?r=<?=$img["idUser"];?>" method="post" enctype="multipart/form-data" class=" flex flex-col items-center justify-center h-full">   
      <p class="text-2xl text-stone-50">Afegir imatge</p>
-     <p class="text-lg text-stone-50">Fer clic o arrosegar</p>
+     <p class="text-lg text-stone-50">Fer clic o arrosegar aqui</p>
       <input type="file" id="imagen" name="imagen[]" accept="image/*" style="display: none;" multiple>
       <button id="enviarFormularioButton" type="button" class="mt-[5%] focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Confirmar</button>
     </form>
