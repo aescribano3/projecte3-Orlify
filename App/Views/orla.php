@@ -11,7 +11,7 @@
 <body id="plantilla-img" class="bg-gray-100 font-sans">
     
     <div class="fixed top-0 left-0 w-full flex items-center justify-center p-4">
-        <button id="downloadButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button id="downloadButton" class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Descargar PDF
         </button>
     </div>

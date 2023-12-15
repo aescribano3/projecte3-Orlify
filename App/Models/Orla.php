@@ -62,7 +62,17 @@ class Orla
         $query->execute([':id' => $id]);
     
         return $query->fetchAll(\PDO::FETCH_ASSOC);}
-}   
 
+    public function getUserOrla($idOrla){
+        $query = $this->sql->prepare('SELECT users.name, users.lastname,imgs.url FROM orla 
+                                      JOIN grup ON orla.idGrup = grup.idGrup 
+                                      JOIN grupuser ON grupuser.idGrup = grup.idGrup 
+                                      JOIN users ON users.idUser = grupuser.idUser 
+                                      JOIN imgs on imgs.idUser= users.idUser WHERE orla.idOrla = :idOrla and imgs.Selecionada = 1;');
+        $query->execute([':idOrla' => $idOrla]);
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
 
     
+
+}   
