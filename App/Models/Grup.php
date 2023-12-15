@@ -11,6 +11,14 @@ class Grup
         $this->sql = $sql;
     }
 
+
+/**
+ * [getAll get all grups]
+ *
+ *
+ * @return  []               [return return all grups]
+ */
+
     public function getAll(){
         $grups = array();
         $query = "SELECT * FROM grup;";
@@ -20,6 +28,13 @@ class Grup
 
         return $grups;
     }
+
+/**
+ * [getGrupData get all grups]
+ *
+ * @param   [Int]  $id  [$id grup id to search for]
+ * @return  []               [return return all grups]
+ */
 
     public function getGrupData($id){
         $stm = $this->sql->prepare("select * from grup where idGrup=:id;");
@@ -31,6 +46,18 @@ class Grup
             return false;
         }
     }
+
+    
+    
+    /**
+     * [createGrup description]
+     *
+     * @param   [String]  $grupname  [$grupname nom del grup]
+     * @param   [String]  $grupcurs     [$grupcurs curs del grup]
+     * @param   [Int]  $grupteacher  [$grupteacher profesor]
+     *
+     * @return  []                    [return description]
+     */
 
     public function createGrup($grupname, $grupcurs, $grupteacher){
         
@@ -46,6 +73,17 @@ class Grup
         
     }
 
+    /**
+     * [modifiGrup actualitza la informacio de un grup]
+     *
+     * @param   [Int]  $id           [$id description]
+     * @param   [String]  $grupname     [$grupname description]
+     * @param   [String]  $grupcurs     [$grupcurs any del curs]
+     * @param   [Int]  $grupteacher  [$grupteacher id del profesor]
+     *
+     * @return  []                    [return description]
+     */
+    
     public function modifiGrup($id, $grupname, $grupcurs, $grupteacher){
         
         $stm = $this->sql->prepare("UPDATE grup SET name=:grupname, curs=:grupcurs, idTeacher=:grupteacher WHERE idGrup=:id;");
@@ -61,6 +99,13 @@ class Grup
         
     }
 
+    /**
+     * [dropGrup description]
+     *
+     * @param   [Int]  $id  [$id id del grup que es vol borrar]
+     *
+     * @return  []           [return description]
+     */
     public function dropGrup($id){
         
         $stm = $this->sql->prepare("DELETE FROM grup WHERE idGrup=:id;");
