@@ -25,6 +25,11 @@ $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
 $app->get("/selecionarimatge", "App\Controllers\imguser:selectimg");
 $app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
 
+
+
+
+$app->get("/informarimatge", "App\Controllers\imguser:informimg");
+
 $app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser");
 $app->post("/getgrup", "App\Controllers\Controlpanel:ctrlgetgrup");
 $app->post("/doregister", "App\Controllers\singup:Register");
