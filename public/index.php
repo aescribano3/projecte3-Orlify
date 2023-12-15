@@ -25,7 +25,7 @@ $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
 $app->get("/selecionarimatge", "App\Controllers\imguser:selectimg",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
 
-
+$app->get("/denegarinformar", "App\Controllers\imguser:denegarinformar",[[\App\Middleware\Auth::class,"auth"]]);
 
 $app->get("/informarimatge", "App\Controllers\imguser:informimg",[[\App\Middleware\Auth::class,"auth"]]);
 

@@ -125,6 +125,17 @@ public function informimg($id)
     return $result;
 }
 
+public function desinformimg($id)
+{
+    $updateStmt = $this->sql->prepare('UPDATE imgs SET Informada = 0 WHERE idImg = :id');
+    $result = $updateStmt->execute([
+        ':id' => $id
+    ]);
+
+    return $result;
+}
+
+
 
 
 /**
