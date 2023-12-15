@@ -117,7 +117,7 @@
                                 </td>
                                 <?php if($user["rol"]=="administrador"): ?>
                                 <td class="px-6 py-4">
-                                    <button data-modal-target="modifi-user" id="modifi-user" data-modal-toggle="modifi-user" class="bttn-M-U block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                                    <button data-modal-target="modifi-user" data-modal-toggle="modifi-user" class="bttn-M-U block text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
                                         Modificar
                                     </button>
                                 </td>
@@ -267,6 +267,9 @@
                                 <th scope="col" class="px-6 py-3">
                                     Plantilla de l'orla
                                 </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Publica
+                                </th>
                                 <?php if($user["rol"]=="administrador"): ?>
                                 <th scope="col" class="px-6 py-3">
                                     Modificar
@@ -281,7 +284,7 @@
                         <?php foreach($orles as $i => $orla) { ?>
                             <tr id="<?=$orla["idOrla"]?>" class="GetIdOrla odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <?=$orla["idOrla"]?>
+                                    <a href="/view-orla?idOrla=<?=$orla["idOrla"]?>">Veure Orla</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     <?=$orla["name"]?>
@@ -291,6 +294,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <?=$orla["idPlantilla"]?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?=$orla["public"]?>
                                 </td>
                                 <?php if($user["rol"]=="administrador"): ?>
                                 <td class="px-6 py-4">

@@ -242,8 +242,10 @@ class Controlpanel{
         $namePost = $request->get(INPUT_POST, "orlaname");
         $grupPost = $request->get(INPUT_POST, "orlagrup");
         $orlaPost = $request->get(INPUT_POST, "orlaplantilla");
+        $orlakey = $request->get(INPUT_POST, "orlakey");
+        $orlapublic = $request->get(INPUT_POST, "orlapublic");
 
-        $createOrla = $orlaModel->createorla($namePost, $grupPost, $orlaPost);
+        $createOrla = $orlaModel->createorla($namePost, $grupPost, $orlaPost, $orlakey, $orlapublic);
 
         if ($createOrla) {
             $token = true;
@@ -269,9 +271,11 @@ class Controlpanel{
         $orlaName = $request->get(INPUT_POST, "orlaname");
         $orlaGrup = $request->get(INPUT_POST, "orlagrup");
         $orlaPlantilla = $request->get(INPUT_POST, "orlaplantilla");
+        $orlakey = $request->get(INPUT_POST, "orlakey");
+        $orlapublic = $request->get(INPUT_POST, "orlapublic");
 
 
-        $modifiOrla = $orlesModel->updateOrla($idOrla, $orlaName, $orlaGrup, $orlaPlantilla);
+        $modifiOrla = $orlesModel->updateOrla($idOrla, $orlaName, $orlaGrup, $orlaPlantilla, $orlakey, $orlapublic);
 
         if($modifiOrla){
             $token = true;
