@@ -2,7 +2,7 @@
 
 namespace App\Middleware;
 
-class Auth
+class notalumne
 {
 
     /**
@@ -14,23 +14,30 @@ class Auth
      * @param callable $next  següent middleware o controlador.   
      * @return \Emeset\Http\Response resposta HTTP
      */
-    public static function auth($request, $response, $container, $next)
+    public static function notalumne($request, $response, $container, $next)
     {
-
         $logged = $request->get("SESSION", "logged");
 
-        if (!isset($logged)) {
-            $user = "";
-            $logged = false;
+
+        $yes = false;
+
+        $user = $request->get("SESSION", "user");
+
+        
+
+        if (isset($logged)) {
+            if($user["rol"]!='alumne' && $user["rol"]!=''){
+                $yes = true;
+            }
         }
 
-        $response->set("logged", $logged);
+        $response->set("user", $user);
 
         // si l'usuari està logat permetem carregar el recurs
-        if ($logged) {
+        if ($yes) {
             $response = \Emeset\Middleware::next($request, $response, $container, $next);
         } else {
-            $response->redirect("location: /error");
+            $response->redirect("location: /");
         }
 
         return $response;

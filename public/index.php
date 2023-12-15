@@ -14,37 +14,37 @@ $app->get("/", "App\Controllers\Portada:ctrlIndex");
 $app->get("/login", "App\Controllers\Login:ctrlIndex");
 $app->get("/logout", "App\Controllers\login:ctrlDoLogout");
 $app->post("/dologin", "App\Controllers\login:ctrlDoLogin");
-$app->get("/mis-datos", "App\Controllers\User:ctrlmisdades");
+$app->get("/mis-datos", "App\Controllers\User:ctrlmisdades",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/register", "App\Controllers\Singup:ctrlIndex");
-$app->get("/carnet", "App\Controllers\Carnet:ctrlIndex");
-$app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex");
-$app->get("/info-dades", "App\Controllers\Controlpanel:ctrlIndex");
+$app->get("/carnet", "App\Controllers\Carnet:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/info-dades", "App\Controllers\Controlpanel:ctrlIndex",[[\App\Middleware\notalumne::class,"notalumne"]]);
 $app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
 $app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
 $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
-$app->get("/selecionarimatge", "App\Controllers\imguser:selectimg");
+$app->get("/selecionarimatge", "App\Controllers\imguser:selectimg",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
 
 
 
+$app->get("/informarimatge", "App\Controllers\imguser:informimg",[[\App\Middleware\Auth::class,"auth"]]);
 
-$app->get("/informarimatge", "App\Controllers\imguser:informimg");
 
-$app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser");
-$app->post("/getgrup", "App\Controllers\Controlpanel:ctrlgetgrup");
+$app->post("/getuser", "App\Controllers\Controlpanel:ctrlgetuser",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/getgrup", "App\Controllers\Controlpanel:ctrlgetgrup",[[\App\Middleware\notalumne::class,"notalumne"]]);
 $app->post("/doregister", "App\Controllers\singup:Register");
-$app->post("/create-grup", "App\Controllers\Controlpanel:createGrup");
-$app->post("/modifi-grup", "App\Controllers\Controlpanel:modifiGrup");
-$app->post("/drop-grup", "App\Controllers\Controlpanel:dropGrup");
-$app->post("/create-user", "App\Controllers\Controlpanel:createUser");
-$app->post("/modifi-user", "App\Controllers\Controlpanel:modifiUser");
-$app->post("/drop-user", "App\Controllers\Controlpanel:dropUser");
-$app->post("/createorla", "App\Controllers\Controlpanel:ctrlCreateOrla");
-$app->post("/modifiorla", "App\Controllers\Controlpanel:ctrlmodifiOrla");
-$app->post("/droporla", "App\Controllers\Controlpanel:ctrldropOrla");
-$app->post("/updatedatauser", "App\Controllers\User:Updateuser");
+$app->post("/create-grup", "App\Controllers\Controlpanel:createGrup",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/modifi-grup", "App\Controllers\Controlpanel:modifiGrup",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/drop-grup", "App\Controllers\Controlpanel:dropGrup",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/create-user", "App\Controllers\Controlpanel:createUser",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/modifi-user", "App\Controllers\Controlpanel:modifiUser",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/drop-user", "App\Controllers\Controlpanel:dropUser",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/createorla", "App\Controllers\Controlpanel:ctrlCreateOrla",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/modifiorla", "App\Controllers\Controlpanel:ctrlmodifiOrla",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/droporla", "App\Controllers\Controlpanel:ctrldropOrla",[[\App\Middleware\notalumne::class,"notalumne"]]);
+$app->post("/updatedatauser", "App\Controllers\User:Updateuser",[[\App\Middleware\Auth::class,"auth"]]);
 $app->post("/checkpass", "App\Controllers\User:checkpass");
-$app->post("/afegir-usuari-foto", "App\Controllers\imguser:afegirimatge");
+$app->post("/afegir-usuari-foto", "App\Controllers\imguser:afegirimatge",[[\App\Middleware\notalumne::class,"notalumne"]]);
 $app->post("/check-username", "App\Controllers\User:checkuser");
 
 
