@@ -34,11 +34,14 @@ foreach ($imgs as $img) {
             <?php if($img["Selecionada"]){?>
                     <span class="bg-blue-200 text-xs font-medium text-blue-800 text-center p-0.5 leading-none rounded-full px-2 dark:bg-blue-900 dark:text-blue-200 absolute -translate-y-1/2 translate-x-1/2 left-auto top-0 right-0">Selecionada</span>
            <?php }?>
-           
+
+           <?php if($img["Informada"]){?>
+            <span class="bg-red-500 text-xs font-medium text-gray-50 text-center p-0.5 leading-none rounded-full px-2 dark:bg-blue-900 dark:text-blue-200 absolute translate-y-1/2 translate-x-1/2 bottom-0 right-1/2">!</span>
+            <?php }?>
                 <img class="h-60 w-60" src=<?=$img["url"];?> alt=<?=$img["idImg"];?>>
                 <?php
             if($user["rol"]=="alumne"): ?>    
-                <a href="/selecionarimatge?r=<?=$img["idImg"];?>">Escollir imatge</a> <a class="ml-20" href="h">Informar</a>
+                <a href="/selecionarimatge?r=<?=$img["idImg"];?>">Escollir imatge</a> <a class="ml-20" href="/informarimatge?r=<?=$img["idImg"];?>">Informar</a>
                 <?php else:  ?>
                   <a class="ml-20"  href="/esborrar-img?r=<?=$img["idImg"];?>">Esborrar</a> 
             <?php endif;?>

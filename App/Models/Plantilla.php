@@ -9,6 +9,12 @@ class Plantilla
     public function __construct($sql) {
         $this->sql = $sql;
     }
+/**
+ * [getAllPlantilles selects all templates]
+ *
+ * @return  [][][]                      [return returns the templates]
+ */
+
 
     public function getAllPlantilles(){
         $sql = "SELECT * FROM plantilla";

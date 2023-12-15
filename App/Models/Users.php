@@ -21,6 +21,19 @@ class Users
         return $users;
     }
 
+    /**
+ * [register function that registers the user who has logged into the page]
+ *
+ * @param   [String]  $username  [$username username]
+ * @param   [String]  $nom       [$nom first name]
+ * @param   [String]  $lastname  [$lastname last name]
+ * @param   [String]  $pass      [$pass password]
+ * @param   [String]  $email     [$email email]
+ * @param   [String]  $rol       [$rol role]
+ *
+ * @return  []                 [return the function returns the id of the registered user]
+ */
+
     public function register($username, $nom, $lastname, $pass, $email, $rol)
     {
         $insertStmt = $this->sql->prepare('INSERT INTO users (username,name, lastname, password, email, rol) VALUES (:username, :name1,  :lastname, :pass, :email, :rol);');
@@ -35,6 +48,14 @@ class Users
         return $this->sql->lastInsertId();;
     }
 
+   /**
+ * [addPhoto adds the image to the database]
+ *
+ * @param   [String]  $ruta  [$ruta path of the uploaded image]
+ * @param   [Int]  $id    [$id id]
+ *
+ * @return  []             [return does not return anything]
+ */
 
     public function addphoto($ruta, $id)
     {
@@ -47,6 +68,14 @@ class Users
         return $result;
     }
 
+/**
+ * [getUser searches for the user by username]
+ *
+ * @param   [String]  $user  [$ruta username]
+ *
+ * @return  []             [return returns the selected user]
+ */
+
     public function getUser($user)
     {
         $query = $this->sql->prepare('SELECT * FROM users WHERE username = :user');
@@ -54,6 +83,15 @@ class Users
 
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
+
+    /**
+ * [validateUser validates if the username and password are correct]
+ *
+ * @param   [String]           $user      [$user username]
+ * @param   [String]           $pass      [$pass password]
+ *
+ * @return  []                          [return returns the user if it matches, otherwise returns false]
+ */
 
     public function validateUser($user, $pass)
     {
@@ -68,6 +106,17 @@ class Users
 
         return false;
     }
+
+ /**
+ * [updateUser updates the user's data]
+ *
+ * @param   [String]           $id      [$id id]
+ * @param   [String]           $name      [$name first name]
+ * @param   [String]           $lastname      [$lastname last name]
+ * @param   [String]           $mail      [$mail email]
+ *
+ * @return  []                          [Returns the updated user]
+ */
 
     public function updateUser($id, $name, $lastname, $email)
 {
@@ -92,6 +141,14 @@ class Users
 
 }
 
+/**
+ * [userExists checks if a username exists]
+ *
+ * @param   [String]  $user  [$user username]
+ *
+ * @return  []             [return returns the number of users]
+ */
+
     public function userExists($user)
     {
         $query = $this->sql->prepare('SELECT COUNT(*) FROM users WHERE username = :user');
@@ -99,6 +156,14 @@ class Users
 
         return $query->fetchColumn() > 0;
     }
+
+/**
+ * [dropUser deletes the user and the user's group]
+ *
+ * @param   [int]  $id  [$id user id]
+ *
+ * @return  [][]         [return]
+ */
 
     public function dropUser($id){
             
@@ -118,6 +183,12 @@ class Users
         
     }
 
+/**
+ * [getProfes selects all the professors]
+ *
+ * @return  [][]         [return returns all the professors]
+ */
+
     public function getProfes(){
         $profes = array();
         $query = "SELECT * FROM users WHERE rol = 'professor';";
@@ -128,6 +199,14 @@ class Users
         return $profes;
     }
 
+/**
+ * [getUserById selects the user by id]
+ *
+ * @param   [int]  $id  [$id user id]
+ * @return  [][]         [return returns the user containing the id]
+ */
+
+
     public function getUserById($id){
         $query = $this->sql->prepare('SELECT * FROM users WHERE idUser = :id');
         $query->execute([':id' => $id]);
@@ -135,6 +214,20 @@ class Users
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /**
+     * [modifiUser modifica un usuario desde el panel de control]
+     *
+     * @param   [Int]  $id        [$id id user]
+     * @param   [String]  $username  [$username username]
+     * @param   [String]  $name      [$name name]
+     * @param   [String]  $lastname  [$lastname lastname]
+     * @param   [String]  $email     [$email email]
+     * @param   [String]  $rol       [$rol rol]
+     * @param   [Array]  $grups     [$grups groups]
+     * @param   as      $grup      [$grup conte la informacio de un grup en concret]
+     *
+     * @return  [][][]             [return description]
+     */
     public function modifiUser($id, $username, $name, $lastname, $email, $rol, $grups){
             
             $stm = $this->sql->prepare("UPDATE users SET username=:username, name=:name, lastname=:lastname, email=:email, rol=:rol WHERE idUser=:id;");
@@ -166,6 +259,17 @@ class Users
             return $stm;
             
     }
+
+/**
+ * [updateUserSettoken adds a token to the user that matches the email]
+ *
+ * @param   [String]  $email                 [$email email]
+ * @param   [String]  $reset_token_hash      [$reset_token_hash contains the generated token]
+ * @param   [String]  $reset_token_expires_at [$reset_token_expires_at contains the expiration date of the token]
+ *
+ * @return  [][][]                           [return returns true]
+ */
+
     public function updateUserSettoken($email, $reset_token_hash, $reset_token_expires_at){
         $query = $this->sql->prepare('UPDATE users
             SET 
@@ -179,6 +283,15 @@ class Users
         ]);
         return true;
     }
+
+/**
+ * [getHashToEqualToken adds a token to the user that matches the email]
+ *
+ * @param   [String]  $token     [$token token to search for]
+ *
+ * @return  [][][]             [return returns the selected row]
+ */
+
     public function getHashToEqualToken($token){
         $query = $this->sql->prepare('SELECT * FROM users WHERE reset_token_hash = :reset_token_hash');
         $query->execute([
@@ -186,6 +299,17 @@ class Users
         ]);
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
+
+/**
+ * [updatePassword updates the password based on the token]
+ *
+ * @param   [String]  $reset_token_hash  [$reset_token_hash]
+ * @param   [String]  $password           [$password]
+ *
+ * @return  [][][]                      [return returns true]
+ */
+
+
     public function updatePassword($reset_token_hash, $password){
         $query = $this->sql->prepare('UPDATE users
             SET 
