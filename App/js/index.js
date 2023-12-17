@@ -12,3 +12,4 @@ import "./generateuser.js";
 import "./cookies.js";
 import "./datatables.js";
 import "./camera.js";
+import "./appendForm.js";

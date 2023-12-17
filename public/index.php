@@ -51,4 +51,7 @@ $app->post("/doforgotpassword", "App\Controllers\ForgotPassword:ctrlDoForgotPass
 $app->get("/reset-password", "App\Controllers\ResetPassword:ctrlIndex");
 $app->post("/restablecercontra", "App\Controllers\ResetPassword:ctrlDoResetPassword");
 
+// CSV
+$app->post("/csvfile", "App\Controllers\Controlpanel:cntrlIndex");
+
 $app->execute();

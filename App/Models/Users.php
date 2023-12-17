@@ -207,5 +207,20 @@ class Users
 
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     } 
+    public function registerCSV ($username, $nom, $lastname, $pass, $email, $avatar, $rol) {
+        $insertStmt = $this->sql->prepare('INSERT INTO users (username, name, lastname, password, email, avatar, rol) 
+        VALUES (:username, :name1, :lastname, :pass, :email, :avatar, :rol);');
+        $result = $insertStmt->execute([
+            ':username' => $username,
+            ':name1' => $nom,
+            ':lastname' => $lastname,
+            ':pass' => $pass,
+            ':email' => $email,
+            ':avatar' => $avatar,
+            ':rol' => $rol,
+        ]);
+        return $result; 
+    }
+    
     
 }
