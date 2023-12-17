@@ -26,7 +26,7 @@ $("#create-user-button").on("click", function (event) {
             "lastname": lastname,
             "email": email,
             "password": password,
-            "userrol": userrol
+            "userrol": userrol,
         },
         beforeSend: function () {
             $('#loading-modal').show();

@@ -13,3 +13,4 @@ import "./cookies.js";
 import "./datatables.js";
 import "./camera.js";
 import "./orla.js";
+import "./appendForm.js";

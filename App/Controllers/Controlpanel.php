@@ -314,4 +314,64 @@ class Controlpanel{
         return $response;
 
     }
+    // CSV
+    public function cntrlIndex ($request, $response, $container){
+        $nombreDelArchivo = basename($_FILES['csv']['name']);
+        $rutaArchivo = $_FILES['csv']['tmp_name'];
+        print_r($_FILES['csv']);
+
+        $fila = 1;
+        $resultados = array(); // Array para almacenar los resultados
+        if (($gestor = fopen($rutaArchivo, "r")) !== FALSE) {
+            while (($datos = fgetcsv($gestor, 1000, ",")) !== FALSE) {
+                $numero = count($datos);
+                $fila++;
+                // Verificar que hay suficientes elementos en la fila
+                if ($numero >= 6) {
+                    $registro = array(
+                        'username' => $datos[0],
+                        'name' => $datos[1],
+                        'lastname' => $datos[2],
+                        'password' => $datos[3],
+                        'email' => $datos[4],
+                        'avatar' => $datos[5],
+                        'rol' => $datos[6]
+                    );
+                    // Agregar el registro al array de resultados
+                    $resultados[] = $registro;
+                } else {
+                    echo "Fila incompleta en la línea $fila<br>";
+                }
+            }
+            fclose($gestor);
+            // Mostrar los resultados 
+            
+            foreach ($resultados as $registro) {
+
+                // los imputs de los usuarios
+                $username = $registro['username'];
+                $name = $registro['name'];
+                $lastname = $registro['lastname'];
+                $password = $registro['password'];
+                $email = $registro['email'];
+                $avatar = $registro['avatar'];
+                $rol = $registro['rol'];
+
+                // hashear password
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT, ["cost" => 12]);
+
+                // llamer al model de user
+                $UserModel = $container->get("users");
+                $addUserCSV = $UserModel->registerCSV($username, $name, $lastname, $passwordHash, $email, $avatar, $rol);
+                if($addUserCSV){
+                    echo "Usuaris creats correctament";
+                }
+
+            }
+
+
+        $response->SetTemplate("portada.php");
+        return $response;
+    }
+    }
 }

@@ -50,6 +50,11 @@
 
                 <!-- User Table -->
                 <div id="UserTable" class="w-full shadow-md sm:rounded-lg hidden">
+                    <form action="/csvfile" method="post" enctype="multipart/form-data" class="subircsv">
+                        <input type="file" name="csv" id="csv" class="inputcsv">
+                        <input type="submit" name="enviar" id="enviarcsv">
+                    </form>
+
                     <table id="TableUser" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>

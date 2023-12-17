@@ -125,3 +125,40 @@ body{
 .borderP{
     border-bottom: 3px solid black;
 }
+.subircsv {
+    padding: 0;
+}
+#enviarcsv{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    font-weight: 500;
+    font-size: 0.875rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-right: 0px;
+}
+
+.inputcsv::file-selector-button{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    font-weight: 500;
+    font-size: 0.875rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.5rem;}
+.dataTables_filter{
+    display: flex;
+    justify-content: space-between;
+}
+.dataTables_filter label{
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+}
