@@ -4,6 +4,9 @@ namespace App\Controllers;
 class ResetPassword{
 
     public function ctrlIndex($request, $response, $container) {
+        // zona horaria de españa/ madrid
+        date_default_timezone_set('Europe/Madrid'); // esto es para que la hora sea la de españa
+        
         $token = $request->get(INPUT_GET, "token");
         $token_hash = hash("sha256", $token);
 
