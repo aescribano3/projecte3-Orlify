@@ -42,7 +42,7 @@ class ForgotPassword
                 $mail->addAddress($email);
                 $mail->Subject = "Recuperar contrasenya";
                 $mail->Body = <<<END
-                     Recupera tu password <a href="http://localhost:8080/reset-password?token=$token">aqui</a>
+                     Recupera tu password <a href="{$domain}?token=$token">aqui</a>
                     END;
                     try {
                         $mail->send();

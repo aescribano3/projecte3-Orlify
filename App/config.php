@@ -15,7 +15,7 @@ return [
         "host" => Emeset\Env::get("host", "localhost")
     ],
     "mailer" => [
-        "domain" => "http://localhost:8080",
+        "domain" => "http://localhost:8080/reset-password",
         "host" => "smtp.gmail.com",
         "port" => 587,
         "username" => "amineryouchorlify@gmail.com",
