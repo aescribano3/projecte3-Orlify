@@ -21,11 +21,6 @@ class Login{
         $userModel = $container->get("users");
         $user = $userModel->validateUser($username, $password);
 
-        if($user["rol"]=="professor"){
-            $response->setSession("professor",true);
-        }
-
-
         if($user) {
             $response->setSession("user", $user);
             $response->setSession("logged", true);

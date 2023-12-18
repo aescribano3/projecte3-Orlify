@@ -5,7 +5,7 @@ class User{
 
     public function checkuser($request, $response, $container){
 
-        $username = $request->get(INPUT_POST, "usernameid");
+        $username = $request->get(INPUT_POST, "username");
 
         $UserModel = $container->get("users");
 
