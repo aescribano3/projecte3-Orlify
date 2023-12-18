@@ -46,6 +46,21 @@ class Container extends EmesetContainer
                     $c["config"]["db"]["host"]
                 );
             };
+            $this["mailer"] = function ($c) {
+                $config = $c["config"]["mailer"];
+                $domain = $config["domain"];
+                $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+                $mail->isSMTP();
+                $mail->Host = $config["host"];
+                $mail->SMTPAuth = true;
+                $mail->Username = $config["username"];
+                $mail->Password = $config["password"];
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = $config["port"];
+                $mail->isHTML(true);
+                // dominio
+                return ['mail' => $mail, 'domain' => $domain]; // return un array del domini i el mail
+            };
         }
     }
 }

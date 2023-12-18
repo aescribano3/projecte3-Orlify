@@ -14,4 +14,11 @@ return [
         "db" => Emeset\Env::get("db", "orlify"),
         "host" => Emeset\Env::get("host", "localhost")
     ],
+    "mailer" => [
+        "domain" => "http://localhost:8080",
+        "host" => "smtp.gmail.com",
+        "port" => 587,
+        "username" => "amineryouchorlify@gmail.com",
+        "password" => "ttck ceea roug eyie",
+    ],
 ];
