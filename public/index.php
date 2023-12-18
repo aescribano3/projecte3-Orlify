@@ -11,7 +11,7 @@ $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->get("/", "App\Controllers\Portada:ctrlIndex");
-$app->get("/login", "App\Controllers\Login:ctrlIndex");
+$app->get("/login", "App\Controllers\Login:ctrlindex");
 $app->get("/logout", "App\Controllers\Login:ctrlDoLogout");
 $app->post("/dologin", "App\Controllers\Login:ctrlDoLogin");
 $app->get("/mis-datos", "App\Controllers\User:ctrlmisdades",[[\App\Middleware\Auth::class,"auth"]]);

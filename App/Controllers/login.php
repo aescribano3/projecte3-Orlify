@@ -5,7 +5,7 @@ namespace App\Controllers;
 class Login{
 
 
-    public function ctrlIndex($request, $response, $container)
+    public function ctrlindex($request, $response, $container)
     {
 
         $response->SetTemplate("login.php");
