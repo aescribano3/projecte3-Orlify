@@ -1,13 +1,16 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Container;
 
-class Controlpanel{
+class Controlpanel
+{
 
-    public function ctrlIndex ($request, $response, $container){
+    public function ctrlIndex($request, $response, $container)
+    {
 
-        $userL = $request->get("SESSION","user");
+        $userL = $request->get("SESSION", "user");
         $userLId = $userL["idUser"];
 
         $UserModel = $container->get("users");
@@ -40,7 +43,8 @@ class Controlpanel{
         return $response;
     }
 
-    public function createGrup ($request, $response, $container){
+    public function createGrup($request, $response, $container)
+    {
 
         $grupname = $request->get(INPUT_POST, "grupname");
         $grupcurs = $request->get(INPUT_POST, "grupcurs");
@@ -50,7 +54,7 @@ class Controlpanel{
 
         $GrupModel = $GrupModel->createGrup($grupname, $grupcurs, $grupteacher);
 
-        if($GrupModel){
+        if ($GrupModel) {
             $token = true;
             $resspuestaajax = "Grup creat correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -66,7 +70,8 @@ class Controlpanel{
         return $response;
     }
 
-    public function modifiGrup ($request, $response, $container){
+    public function modifiGrup($request, $response, $container)
+    {
 
         $id = $request->get(INPUT_POST, "id");
         $grupname = $request->get(INPUT_POST, "grupname");
@@ -77,7 +82,7 @@ class Controlpanel{
 
         $GrupModel = $GrupModel->modifiGrup($id, $grupname, $grupcurs, $grupteacher);
 
-        if($GrupModel){
+        if ($GrupModel) {
             $token = true;
             $resspuestaajax = "Grup modificat correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -93,7 +98,8 @@ class Controlpanel{
         return $response;
     }
 
-    public function dropGrup ($request, $response, $container){
+    public function dropGrup($request, $response, $container)
+    {
 
         $id = $request->get(INPUT_POST, "id");
 
@@ -101,7 +107,7 @@ class Controlpanel{
 
         $GrupModel = $GrupModel->dropGrup($id);
 
-        if($GrupModel){
+        if ($GrupModel) {
             $token = true;
             $resspuestaajax = "Grup Eliminat correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -117,7 +123,8 @@ class Controlpanel{
         return $response;
     }
 
-    public function createUser ($request, $response, $container){
+    public function createUser($request, $response, $container)
+    {
 
         $username = $request->get(INPUT_POST, "username");
         $name = $request->get(INPUT_POST, "name");
@@ -132,27 +139,25 @@ class Controlpanel{
         $register = $UserModel->register($username, $name, $lastname, $password, $email, $userrol);
 
         $rutaNuevaCarpeta = './usersimg/';
-        $rutaCompleta = $rutaNuevaCarpeta.$register."/";
+        $rutaCompleta = $rutaNuevaCarpeta . $register . "/";
 
 
         $rutaFotoPorDefecto = "./usersimg/default.png"; // Reemplaza esto con la ruta de tu foto por defecto
-        
-            // Copiar la foto por defecto al directorio
-            $ruta = $rutaCompleta . "avatar.jpg";
-            if (mkdir($rutaCompleta, 0750, true)) {
-            if (copy($rutaFotoPorDefecto, $rutaCompleta . "avatar.jpg")) {
-                $addphoto = $UserModel->addphoto($ruta,$register);
 
+        // Copiar la foto por defecto al directorio
+        $ruta = $rutaCompleta . "avatar.jpg";
+        if (mkdir($rutaCompleta, 0750, true)) {
+            if (copy($rutaFotoPorDefecto, $rutaCompleta . "avatar.jpg")) {
+                $addphoto = $UserModel->addphoto($ruta, $register);
             }
         }
 
 
-        if($register){
+        if ($register) {
             $token = true;
             $resspuestaajax = "Usuari creat correctament";
             $response->set("resspuestaajax", $resspuestaajax);
             $response->set("token", $token);
-            
         } else {
             $token = false;
             $resspuestaajax = "Error al crear l'usuari";
@@ -165,53 +170,54 @@ class Controlpanel{
     }
 
     public function ctrlgetuser($request, $response, $container)
-    {        
+    {
         $id = $request->get(INPUT_POST, "id");
 
         $UserModel = $container->get("users");
 
         $UserModel = $UserModel->getUserById($id);
 
-        $response->Set("data",$UserModel);
+        $response->Set("data", $UserModel);
 
-        $response->setJson(); 
+        $response->setJson();
 
         return $response;
     }
 
-    public function modifiUser ($request, $response, $container){
-            
-            $id = $request->get(INPUT_POST, "id");
-            $username = $request->get(INPUT_POST, "username");
-            $name = $request->get(INPUT_POST, "name");
-            $lastname = $request->get(INPUT_POST, "lastname");
-            $email = $request->get(INPUT_POST, "email");
-            $userrol = $request->get(INPUT_POST, "userrol");
-            $grups = $_POST["grups"];
-    
-            $UserModel = $container->get("users");
-    
-            $ModedUser = $UserModel->modifiUser($id, $username, $name, $lastname, $email, $userrol, $grups);
-    
-            if($UserModel){
-                $token = true;
-                $resspuestaajax = "Usuari modificat correctament";
-                $response->set("resspuestaajax", $resspuestaajax);
-                $response->set("token", $token);
-            } else {
-                $token = false;
-                $resspuestaajax = "Error al modificar l'usuari";
-                $response->set("resspuestaajax", $resspuestaajax);
-                $response->set("token", $token);
-            }
+    public function modifiUser($request, $response, $container)
+    {
 
-            $response->setJSON();
-    
-            return $response;
-        
+        $id = $request->get(INPUT_POST, "id");
+        $username = $request->get(INPUT_POST, "username");
+        $name = $request->get(INPUT_POST, "name");
+        $lastname = $request->get(INPUT_POST, "lastname");
+        $email = $request->get(INPUT_POST, "email");
+        $userrol = $request->get(INPUT_POST, "userrol");
+        $grups = $_POST["grups"];
+
+        $UserModel = $container->get("users");
+
+        $ModedUser = $UserModel->modifiUser($id, $username, $name, $lastname, $email, $userrol, $grups);
+
+        if ($UserModel) {
+            $token = true;
+            $resspuestaajax = "Usuari modificat correctament";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        } else {
+            $token = false;
+            $resspuestaajax = "Error al modificar l'usuari";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+        }
+
+        $response->setJSON();
+
+        return $response;
     }
 
-    public function dropUser ($request, $response, $container){
+    public function dropUser($request, $response, $container)
+    {
 
         $id = $request->get(INPUT_POST, "id");
 
@@ -219,7 +225,7 @@ class Controlpanel{
 
         $UserModel = $UserModel->dropUser($id);
 
-        if($UserModel){
+        if ($UserModel) {
             $token = true;
             $resspuestaajax = "Usuari eliminat correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -236,9 +242,10 @@ class Controlpanel{
     }
 
     // orles
-    public function ctrlCreateOrla($request, $response, $container) {
+    public function ctrlCreateOrla($request, $response, $container)
+    {
         $orlaModel = $container->get("orla"); // obtenim el model de la orla
-        
+
         $namePost = $request->get(INPUT_POST, "orlaname");
         $grupPost = $request->get(INPUT_POST, "orlagrup");
         $orlaPost = $request->get(INPUT_POST, "orlaplantilla");
@@ -253,19 +260,20 @@ class Controlpanel{
             $response->set("resspuestaajax", $resspuestaajax);
             $response->set("token", $token);
         } else {
-                $token = false;
-                $resspuestaajax = "Error al crear la orla";
-                $response->set("resspuestaajax", $resspuestaajax);
-                $response->set("token", $token);
+            $token = false;
+            $resspuestaajax = "Error al crear la orla";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
         }
-        
+
         $response->setJSON();
 
         return $response;
     }
 
-    public function ctrlmodifiOrla ($request, $response, $container){
-        $orlesModel = $container->get("orla"); 
+    public function ctrlmodifiOrla($request, $response, $container)
+    {
+        $orlesModel = $container->get("orla");
 
         $idOrla = $request->get(INPUT_POST, "orlaId");
         $orlaName = $request->get(INPUT_POST, "orlaname");
@@ -277,7 +285,7 @@ class Controlpanel{
 
         $modifiOrla = $orlesModel->updateOrla($idOrla, $orlaName, $orlaGrup, $orlaPlantilla, $orlakey, $orlapublic);
 
-        if($modifiOrla){
+        if ($modifiOrla) {
             $token = true;
             $resspuestaajax = "Orla modificada correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -292,13 +300,14 @@ class Controlpanel{
         return $response;
     }
 
-    public function ctrldropOrla($request, $response, $Container){
+    public function ctrldropOrla($request, $response, $Container)
+    {
         $orlaModel = $Container->get("orla");
 
         $idOrla = $request->get(INPUT_POST, "orlaId");
-        $eliminarOrla = $orlaModel->dropOrla($idOrla); 
+        $eliminarOrla = $orlaModel->dropOrla($idOrla);
 
-        if($eliminarOrla){
+        if ($eliminarOrla) {
             $token = true;
             $resspuestaajax = "Orla eliminada correctament";
             $response->set("resspuestaajax", $resspuestaajax);
@@ -312,66 +321,85 @@ class Controlpanel{
 
         $response->setJSON();
         return $response;
-
     }
     // CSV
-    public function cntrlIndex ($request, $response, $container){
+    public function cntrlIndex($request, $response, $container)
+    {
+        $variableControl = $request->get(INPUT_POST, "variableControl");
+
+
         $nombreDelArchivo = basename($_FILES['csv']['name']);
-        $rutaArchivo = $_FILES['csv']['tmp_name'];
-        print_r($_FILES['csv']);
+        $path_info = pathinfo($nombreDelArchivo);
+        $extension = $path_info['extension'];
 
-        $fila = 1;
-        $resultados = array(); // Array para almacenar los resultados
-        if (($gestor = fopen($rutaArchivo, "r")) !== FALSE) {
-            while (($datos = fgetcsv($gestor, 1000, ",")) !== FALSE) {
-                $numero = count($datos);
-                $fila++;
-                // Verificar que hay suficientes elementos en la fila
-                if ($numero >= 6) {
-                    $registro = array(
-                        'username' => $datos[0],
-                        'name' => $datos[1],
-                        'lastname' => $datos[2],
-                        'password' => $datos[3],
-                        'email' => $datos[4],
-                        'avatar' => $datos[5],
-                        'rol' => $datos[6]
-                    );
-                    // Agregar el registro al array de resultados
-                    $resultados[] = $registro;
+        if ($extension != "csv") {
+            $token = false;
+            $resspuestaajax = "Error al importar el fitxer";
+            $response->set("resspuestaajax", $resspuestaajax);
+            $response->set("token", $token);
+            $response->redirect("location:/info-dades");
+        } else {
+            $rutaArchivo = $_FILES['csv']['tmp_name'];
+            $fila = 1;
+            $resultados = array(); // Array para almacenar los resultados
+            if (($gestor = fopen($rutaArchivo, "r")) !== FALSE) {
+                while (($datos = fgetcsv($gestor, 1000, ",")) !== FALSE) {
+                    $numero = count($datos);
+                    $fila++;
+                    // Verificar que hay suficientes elementos en la fila
+                    if ($numero >= 6) {
+                        $registro = array(
+                            'username' => $datos[0],
+                            'name' => $datos[1],
+                            'lastname' => $datos[2],
+                            'password' => $datos[3],
+                            'email' => $datos[4],
+                            'avatar' => $datos[5],
+                            'rol' => $datos[6]
+                        );
+                        // Agregar el registro al array de resultados
+                        $resultados[] = $registro;
+                    } else {
+                        echo "Fila incompleta en la línea $fila<br>";
+                    }
+                }
+                fclose($gestor);
+                // Mostrar los resultados 
+
+                foreach ($resultados as $registro) {
+
+                    // los imputs de los usuarios
+                    $username = $registro['username'];
+                    $name = $registro['name'];
+                    $lastname = $registro['lastname'];
+                    $password = $registro['password'];
+                    $email = $registro['email'];
+                    $avatar = $registro['avatar'];
+                    $rol = $registro['rol'];
+
+                    // hashear password
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT, ["cost" => 12]);
+
+                    // llamer al model de user
+                    $UserModel = $container->get("users");
+                    $addUserCSV = $UserModel->registerCSV($username, $name, $lastname, $passwordHash, $email, $avatar, $rol);
+                }
+                if ($addUserCSV) {
+                    $token = true;
+                    $resspuestaajax = "Usuaris creats correctament";
+                    $response->set("resspuestaajax", $resspuestaajax);
+                    $response->set("token", $token);
+                    // $response->redirect("location:/info-dades");
                 } else {
-                    echo "Fila incompleta en la línea $fila<br>";
+                    $token = false;
+                    $resspuestaajax = "Error al crear l'usuari";
+                    $response->set("resspuestaajax", $resspuestaajax);
+                    $response->set("token", $token);
+                    // $response->redirect("location:/info-dades");
                 }
             }
-            fclose($gestor);
-            // Mostrar los resultados 
-            
-            foreach ($resultados as $registro) {
-
-                // los imputs de los usuarios
-                $username = $registro['username'];
-                $name = $registro['name'];
-                $lastname = $registro['lastname'];
-                $password = $registro['password'];
-                $email = $registro['email'];
-                $avatar = $registro['avatar'];
-                $rol = $registro['rol'];
-
-                // hashear password
-                $passwordHash = password_hash($password, PASSWORD_DEFAULT, ["cost" => 12]);
-
-                // llamer al model de user
-                $UserModel = $container->get("users");
-                $addUserCSV = $UserModel->registerCSV($username, $name, $lastname, $passwordHash, $email, $avatar, $rol);
-                if($addUserCSV){
-                    echo "Usuaris creats correctament";
-                }
-
-            }
-
-
-        $response->SetTemplate("portada.php");
-        return $response;
-    }
+            $response->setJSON();
+            return $response;
+        }
     }
 }
