@@ -51,8 +51,9 @@
                 <!-- User Table -->
                 <div id="UserTable" class="w-full shadow-md sm:rounded-lg hidden">
                     <form action="/csvfile" method="post" enctype="multipart/form-data" class="subircsv">
+                        <label for="csv" class="labelcsv">Selecciona un fitxer CSV</label>
                         <input type="file" name="csv" id="csv" class="inputcsv">
-                        <input type="submit" name="enviar" id="enviarcsv">
+                        <button type="submit" name="enviar" id="enviarcsv">Enviar</button>
                     </form>
 
                     <table id="TableUser" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

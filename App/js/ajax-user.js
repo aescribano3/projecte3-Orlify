@@ -180,3 +180,45 @@ $(".drop-button-user").on("click", function (event) {
         }
     });
 });
+
+// csv
+    $(".subircsv").on("submit", function (event) {
+        event.preventDefault();
+
+        $("#toast-success").hide();
+        $("#toast-error").hide();
+
+        // Crear un objeto FormData y agregar el archivo
+        var formData = new FormData($(this)[0]);
+        formData.append("variableControl", "csv");
+
+        $.ajax({
+            url: "/csvfile",
+            method: "POST",
+            data: formData,
+            processData: false,  
+            contentType: false,  
+            beforeSend: function () {
+                $('#loading-modal').show();
+            },
+            success: function (result) {
+                console.log("hola");
+                let token = result.token;
+                if (token) {
+                    $("#respuestaajax").html(result.resspuestaajax);
+                    $("#toast-error").hide();
+                    $("#toast-success").show();
+                }
+            },
+            error: function (error) {
+                console.log(error);
+                let errorServidor = error.statusText;
+                $("#toast-success").hide();
+                $("#toast-error").show();
+                $("#errortoast").html(errorServidor);
+            },
+            complete: function () {
+                $("#loading-modal").hide();
+            }
+        });
+    });
