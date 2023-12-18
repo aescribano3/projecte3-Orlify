@@ -31,6 +31,9 @@
                         <li>
                             <a href="/imatges-usuari" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Imatges Orla</a>
                         </li>
+                        <li>
+                            <a href="/carnet" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carnet Institut</a>
+                        </li>
                         <?php endif; ?>
                         <?php if($user["rol"]=="professor" || $user["rol"]=="equip directiu" ||$user["rol"]=="administrador" ): ?>
                             <li>

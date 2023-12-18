@@ -5,6 +5,17 @@ namespace App\Controllers;
 class Carnet{
 
 
+    /**
+     * Show the carnet with the alumne data
+     *
+     * @param   user    $user       Session user
+     * @param   int      $userId     User id
+     * @param   int      $idGrup     Grup id
+     * @param   grupName    $grupName   Grup name
+     * @param   grupCurs    $grupCurs   Grup curs
+     *
+     * @return              carnet view
+     */
     public function ctrlIndex($request, $response, $container) {
         
         $grupUserModel = $container->get("grupuser");
