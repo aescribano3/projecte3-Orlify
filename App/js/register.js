@@ -29,13 +29,13 @@ errorContainerUser.hide();
 
 
 //quan es prem una tecla al input de nom de usuari es crida un ajax per comprovar si existeix al servidor
-$("#usernameid").on("input", function() {
-    var usernameid = $(this).val();
+$("#username").on("input", function() {
+    var username = $(this).val();
 
     $.ajax({
         url: "/check-username",
         type: "POST",
-        data: {usernameid},
+        data: {username},
         success: function (result) {
 
             if(result){
