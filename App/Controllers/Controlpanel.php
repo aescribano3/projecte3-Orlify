@@ -323,8 +323,28 @@ class Controlpanel
         return $response;
     }
     // CSV
-    public function cntrlIndex($request, $response, $container)
-    {
+    /**
+     * [cntrlIndex is the function that allows us to upload a csv file that contains users to the database]
+     * @param   string   $extension         [variable that contains the extension of the file]
+     * @param   boolean  $token             [is a boolean variable to control the ajax response]
+     * @param   string   $resspuestaajax    [is a string variable to control the ajax response]
+     * @param   resource $gestor            [file pointer resource]
+     * @param   string   $rutaArchivo       [path to the uploaded file]
+     * @param   array    $datos             [array of data from the csv file]
+     * @param   array    $resultados        [array to store the results]
+     * @param   array    $registro          [array to store the user data]
+     * @param   string   $passwordHash      [hashed password]
+     * @param   object   $UserModel         [instance of the UserModel class]
+     * @param   bool     $addUserCSV        [boolean indicating if the user was added successfully]
+     * @param   string   $username          [username from the csv file]
+     * @param   string   $name              [name from the csv file]
+     * @param   string   $lastname          [lastname from the csv file]
+     * @param   string   $email             [email from the csv file]
+     * @param   string   $avatar            [avatar from the csv file]
+     * @param   string   $rol               [role from the csv file]
+     * @return  array                       [array with the ajax response]
+     */
+    public function cntrlIndex($request, $response, $container) {
         $variableControl = $request->get(INPUT_POST, "variableControl");
 
 
