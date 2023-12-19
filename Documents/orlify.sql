@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2023 a las 16:20:16
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: localhost
+-- Tiempo de generación: 19-12-2023 a las 14:53:25
+-- Versión del servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
+-- Versión de PHP: 8.1.2-1ubuntu2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,14 +34,6 @@ CREATE TABLE `grup` (
   `idTeacher` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `grup`
---
-
-INSERT INTO `grup` (`idGrup`, `name`, `curs`, `idTeacher`) VALUES
-(1, '2 DAW', '2021/2022', 4),
-(3, '4 ESO', '2023/2024', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -52,16 +44,6 @@ CREATE TABLE `grupuser` (
   `idUser` int(11) NOT NULL,
   `idGrup` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `grupuser`
---
-
-INSERT INTO `grupuser` (`idUser`, `idGrup`) VALUES
-(9, 1),
-(43, 1),
-(44, 1),
-(45, 3);
 
 -- --------------------------------------------------------
 
@@ -74,24 +56,9 @@ CREATE TABLE `imgs` (
   `url` varchar(150) NOT NULL,
   `idUser` int(11) NOT NULL,
   `idOrla` int(11) NOT NULL,
-  `Selecionada` int(1) NOT NULL
+  `Selecionada` int(1) NOT NULL,
+  `Informada` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `imgs`
---
-
-INSERT INTO `imgs` (`idImg`, `url`, `idUser`, `idOrla`, `Selecionada`) VALUES
-(2, '\\usersimg\\2\\orla\\avatar.jpg', 9, 2, 0),
-(58, './usersimg/1/orla/4.jpg', 1, 2, 0),
-(59, './usersimg/1/orla/5.jpg', 1, 2, 1),
-(61, './usersimg/1/orla/5.png', 1, 2, 0),
-(62, './usersimg/1/orla/6.png', 1, 2, 0),
-(63, './usersimg/1/orla/7.png', 1, 2, 0),
-(64, './usersimg/9/orla/3.jpg', 9, 2, 1),
-(65, './usersimg/43/orla/0.jpg', 43, 2, 1),
-(66, './usersimg/44/orla/0.jpg', 44, 2, 1),
-(67, './usersimg/45/orla/0.jpg', 45, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -107,14 +74,6 @@ CREATE TABLE `orla` (
   `idGrup` int(11) NOT NULL,
   `idPlantilla` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `orla`
---
-
-INSERT INTO `orla` (`idOrla`, `name`, `keyOrla`, `public`, `idGrup`, `idPlantilla`) VALUES
-(2, 'Orla 2021/2022 Rico Pato', '123', 1, 1, 2),
-(5, 'Orla de prova amb plantilla 1', '123456', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +108,7 @@ CREATE TABLE `users` (
   `lastname` varchar(150) NOT NULL,
   `password` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `avatar` varchar(150) NOT NULL,
+  `avatar` varchar(150) NOT NULL DEFAULT './usersimg/default.png',
   `rol` varchar(150) NOT NULL,
   `reset_token_hash` varchar(64) DEFAULT NULL,
   `reset_token_expires_at` datetime DEFAULT NULL
@@ -161,11 +120,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`idUser`, `username`, `name`, `lastname`, `password`, `email`, `avatar`, `rol`, `reset_token_hash`, `reset_token_expires_at`) VALUES
 (1, 'prova', 'prova', 'prova', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'prova@gmail.com', './usersimg/1/avatar.png', 'administrador', NULL, NULL),
-(4, 'RPato', 'Rico', 'MacPato', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'larauz@cendrassos.net', './usersimg/4/avatar.jpg', 'professor', 'dc77293a87a1dd6aacc5873b8acc4704a053d8840b40d8c2d8312497be8880fe', '2023-12-14 15:46:59'),
-(9, 'MB', 'Mr', 'Boombastic', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'MB@is.com', './usersimg/9/avatar.jpg', 'alumne', NULL, NULL),
-(43, 'beautifulzebra538', 'Gregory', 'Ellis', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'gregory.ellis@example.com', '', 'alumne', NULL, NULL),
-(44, 'whitefish644', 'Deborah', 'Washington', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'deborah.washington@example.com', '', 'alumne', NULL, NULL),
-(45, 'crazyladybug756', 'Kate', 'Taylor', '$2y$12$rGbqwuvOQLowOTsQSX.WBuwPalhSW/.mH4Y8qwM4TpFVLq2SjHv2G', 'kate.taylor@example.com', '', 'alumne', NULL, NULL);
+(46, 'user1', 'user1', 'user1', '$2y$12$g5JKeNDmqK4VU0Glu.G2JeD2JPe7oGVu9RmpTa13qQTXT2hoqG4CG', 'user1@gmail.com', './usersimg/default.png', 'alumne', NULL, NULL),
+(47, 'user1', 'user1', 'user1', '$2y$12$vHRna3LDRQ0G2wFmV/Z/h.f2eXtaJPE3P.x3ueh9GH59Tpneit9Qu', 'user1@gmail.com', './usersimg/default.png', 'alumne', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -221,19 +177,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `grup`
 --
 ALTER TABLE `grup`
-  MODIFY `idGrup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `idGrup` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `imgs`
 --
 ALTER TABLE `imgs`
-  MODIFY `idImg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `idImg` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `orla`
 --
 ALTER TABLE `orla`
-  MODIFY `idOrla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idOrla` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `plantilla`
@@ -245,7 +201,7 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Restricciones para tablas volcadas

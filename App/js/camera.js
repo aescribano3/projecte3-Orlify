@@ -27,7 +27,6 @@ $(document).ready(function () {
     
         // You can now use the data URL or send the captured image to the server
         const imageDataURL = canvas.toDataURL('image/png');
-        console.log('Captured Image Data URL:', imageDataURL);
     
         // Set the captured image data in the hidden input field
         $('#capturedImageData').val(imageDataURL);

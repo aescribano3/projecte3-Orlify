@@ -22,8 +22,8 @@ $app->get("/register", "App\Controllers\singup:ctrlIndex");
 $app->post("/doregister", "App\Controllers\singup:Register");
 
 $app->get("/carnet", "App\Controllers\carnet:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
-$app->get("/view-orla", "App\Controllers\viewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
-$app->post("/checkkey", "App\Controllers\viewOrla:CheckKey");
+$app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/checkkey", "App\Controllers\ViewOrla:CheckKey");
 $app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
 $app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
 $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
@@ -50,7 +50,7 @@ $app->post("/checkpass", "App\Controllers\user:checkpass");
 
 $app->post("/check-username", "App\Controllers\user:checkuser");
 
-$app->get(Router::DEFAULT_ROUTE, "App\Controllers\error:ctrlIndex");
+$app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
 
 // forget password 
 $app->get("/forgot-password", "App\Controllers\ForgotPassword:ctrlIndex");
