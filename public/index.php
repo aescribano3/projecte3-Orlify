@@ -4,6 +4,9 @@ use \Emeset\Contracts\Routers\Router;
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
+include "../App/Middleware/App.php";
+include "../App/Middleware/auth.php";
+include "../App/Middleware/notalumne.php";
 
 $contenidor = new \App\Container(__DIR__ . "/../App/config.php"); 
 
