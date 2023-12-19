@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-class User{
+class user{
 
     public function checkuser($request, $response, $container){
 

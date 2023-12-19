@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Imguser{
+class imguser{
 
     public function ctrlorla($request, $response, $container)
     {

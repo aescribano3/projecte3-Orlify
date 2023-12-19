@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Carnet{
+class carnet{
 
 
     /**

@@ -22,8 +22,8 @@ $app->get("/register", "App\Controllers\singup:ctrlIndex");
 $app->post("/doregister", "App\Controllers\singup:Register");
 
 $app->get("/carnet", "App\Controllers\carnet:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
-$app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
-$app->post("/checkkey", "App\Controllers\ViewOrla:CheckKey");
+$app->get("/view-orla", "App\Controllers\viewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
+$app->post("/checkkey", "App\Controllers\viewOrla:CheckKey");
 $app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
 $app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
 $app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");

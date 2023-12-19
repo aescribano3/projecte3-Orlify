@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class SingUp{
+class singUp{
 
 
     public function ctrlIndex($request, $response, $container)

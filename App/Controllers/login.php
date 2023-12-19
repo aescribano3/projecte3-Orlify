@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Login{
+class login{
 
 
     public function ctrlindex($request, $response, $container)
