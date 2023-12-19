@@ -26,7 +26,7 @@ $app->get("/view-orla", "App\Controllers\viewOrla:ctrlIndex",[[\App\Middleware\A
 $app->post("/checkkey", "App\Controllers\viewOrla:CheckKey");
 $app->get("/imatges-usuari", "App\Controllers\imguser:ctrlimatgeuser");
 $app->get("/dadesorla", "App\Controllers\imguser:ctrlOrla");
-$app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg");
+$app->get("/ver-aquesta-orla", "App\Controllers\imguser:ctrlorlaimg",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/selecionarimatge", "App\Controllers\imguser:selectimg",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/esborrar-img", "App\Controllers\imguser:deleteimg");
 $app->get("/denegarinformar", "App\Controllers\imguser:denegarinformar",[[\App\Middleware\Auth::class,"auth"]]);
