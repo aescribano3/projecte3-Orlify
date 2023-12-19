@@ -14,12 +14,12 @@ $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->get("/", "App\Controllers\Portada:ctrlIndex");
-$app->get("/login", "App\Controllers\Login:ctrlindex");
-$app->get("/logout", "App\Controllers\Login:ctrlDoLogout");
-$app->post("/dologin", "App\Controllers\Login:ctrlDoLogin");
-$app->get("/mis-datos", "App\Controllers\User:ctrlmisdades",[[\App\Middleware\Auth::class,"auth"]]);
-$app->get("/register", "App\Controllers\Singup:ctrlIndex");
-$app->post("/doregister", "App\Controllers\Singup:Register");
+$app->get("/login", "App\Controllers\login:ctrlindex");
+$app->get("/logout", "App\Controllers\login:ctrlDoLogout");
+$app->post("/dologin", "App\Controllers\login:ctrlDoLogin");
+$app->get("/mis-datos", "App\Controllers\user:ctrlmisdades",[[\App\Middleware\Auth::class,"auth"]]);
+$app->get("/register", "App\Controllers\singup:ctrlIndex");
+$app->post("/doregister", "App\Controllers\singup:Register");
 
 $app->get("/carnet", "App\Controllers\Carnet:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
 $app->get("/view-orla", "App\Controllers\ViewOrla:ctrlIndex",[[\App\Middleware\Auth::class,"auth"]]);
