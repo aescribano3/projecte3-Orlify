@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class error{
+class Error{
     
     public function ctrlIndex($request, $response, $container)
     {

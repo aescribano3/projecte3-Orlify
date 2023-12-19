@@ -50,7 +50,7 @@ $app->post("/checkpass", "App\Controllers\user:checkpass");
 
 $app->post("/check-username", "App\Controllers\user:checkuser");
 
-$app->get(Router::DEFAULT_ROUTE, "App\Controllers\error:ctrlIndex");
+$app->get(Router::DEFAULT_ROUTE, "App\Controllers\Error:ctrlIndex");
 
 // forget password 
 $app->get("/forgot-password", "App\Controllers\ForgotPassword:ctrlIndex");
