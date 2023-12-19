@@ -14,3 +14,4 @@ import "./datatables.js";
 import "./camera.js";
 import "./orla.js";
 import "./appendForm.js";
+import "./infodadesstyle.js";
